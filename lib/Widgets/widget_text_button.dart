@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class MyTextButton extends StatelessWidget {
   MyTextButton({
     required this.text,
-    Key? key,this.onPressed
+    Key? key,this.onPressed,
+    required this.textStyle
   }) : super(key: key);
   String text;
   var onPressed;
+  TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class MyTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-         style: Theme.of(context).textTheme.subtitle1,
+         style: textStyle,
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+
 
 class MyButton extends StatelessWidget {
    MyButton({required this.color,required this.text,required this.width,required this.height,
@@ -23,7 +23,7 @@ class MyButton extends StatelessWidget {
           color: color,
           borderRadius:const BorderRadius.all(Radius.elliptical(20,40)),
         ),
-        child: Center(child: Text(text,style: Theme.of(context).textTheme.subtitle1 ,),),
+        child: Center(child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500) ,),),
       ),);
   }
 }
