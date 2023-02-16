@@ -1,5 +1,6 @@
 import 'package:biocoder/Pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../Utils/colors.dart';
 import '../Widgets/my_button.dart';
 import '../Widgets/widget_text_button.dart';
@@ -7,17 +8,37 @@ import '../Widgets/widget_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
-
+// 783, 392
   @override
   Widget build(BuildContext context) {
     final passwordController = TextEditingController();
     final usernameController = TextEditingController();
+
+    void changeLanguage(){
+      Get.updateLocale(
+          Get.locale == const Locale("tr","TR") ?  const Locale("en","EN")  :  const Locale("tr","TR")
+      );
+    }
     return SafeArea(
 
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
+        appBar: AppBar(
+          toolbarHeight: 30,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8,top: 8),
+              child: MyButton(color: bioGreen, text: 'button_lang'.tr, width: 50, height: 30,
+                onTap: changeLanguage
 
+              ),
+            ),
+          ],
+
+        ),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -32,7 +53,7 @@ class LoginPage extends StatelessWidget {
                 WidgetTextField(
                   obscure: false,
                   controller: usernameController,
-                  textLabel: 'Kullanıcı Adı',
+                  textLabel: 'login_kullanıcıadı'.tr,
                   icon: const Icon(Icons.account_circle_sharp,color: bioGreen,),
                   colorBorder: bioBlue,
                   colorHint: bioBlue,
@@ -41,7 +62,7 @@ class LoginPage extends StatelessWidget {
                 WidgetTextField(
                   obscure: true,
                   controller: passwordController,
-                  textLabel: 'Şifre',
+                  textLabel: 'login_şifre'.tr,
                   icon: const Icon(Icons.key_outlined,color: bioGreen,),
                   colorBorder: bioBlue,
                   colorHint: bioBlue,
@@ -50,10 +71,8 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    MyTextButton(text: "Şifremi Unuttum",onPressed: (){
-                     /* Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return PasswordPage();
-                      }));*/
+                    MyTextButton(text: "login_şifremiunuttum".tr,onPressed: (){
+
                     },
                       textStyle: const TextStyle(color: bioBlue,fontSize: 15,fontWeight: FontWeight.w500),
                     ),
@@ -62,20 +81,18 @@ class LoginPage extends StatelessWidget {
                 MyButton(
                   height: 50,width: 300,
                   color: bioBlue,
-                  text: "Giriş Yap",
+                  text: "login_girişyap".tr,
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const HomePage();
-                    },));
+                    Get.to(() => const HomePage());
                   },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(width: 10,),
-                    const Text("Üye Değil misin?",style: TextStyle(color: bioBlue,fontSize: 18,fontWeight: FontWeight.w500),),
+                    Text("login_üyedeğilmisiniz".tr,style: TextStyle(color: bioBlue,fontSize: 18,fontWeight: FontWeight.w500),),
                     MyTextButton(
-                      text: 'Kayıt Ol',
+                      text: 'login_kayıtol'.tr,
                       onPressed: null,
                       textStyle: const TextStyle(color: bioGreen,fontSize: 15,fontWeight: FontWeight.w500),
                     ),

@@ -1,17 +1,18 @@
 import 'dart:convert';
-
 import 'package:biocoder/Models/weather_model.dart';
 import 'package:biocoder/Pages/home_page.dart';
 import 'package:biocoder/Utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
-class WeatherPage extends StatefulWidget {
-   WeatherPage({Key? key,required this.lat,required this.long}) : super(key: key);
-  late var lat;
-  late var long;
+import '../Widgets/my_button.dart';
 
+
+class WeatherPage extends StatefulWidget {
+    WeatherPage({Key? key,required this.position}) : super(key: key);
+   Position position;
   @override
   State<WeatherPage> createState() => _WeatherPageState();
 }
@@ -21,7 +22,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
   Future<Weather> fetchWeather() async {
     final resp = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?lat=${widget.lat}&lon=${widget.long}&appid=24929a5b84eefeed512bdb9387f9b021"));
+        "https://api.openweathermap.org/data/2.5/weather?lat=${widget.position.latitude}&lon=${widget.position.longitude}&appid=24929a5b84eefeed512bdb9387f9b021"));
 
     if (resp.statusCode == 200) {
       Map<String, dynamic> json = jsonDecode(resp.body);
@@ -32,7 +33,11 @@ class _WeatherPageState extends State<WeatherPage> {
     }
   }
 
-
+  void changeLanguage(){
+    Get.updateLocale(
+        Get.locale == const Locale("tr","TR") ?  const Locale("en","EN")  :  const Locale("tr","TR")
+    );
+  }
 
   late Future<Weather> myWeather;
 
@@ -46,21 +51,25 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        toolbarHeight: 30,
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return const HomePage();
-                },
-              ));
+              Get.to(()=> const HomePage());
             },
             icon: const Icon(Icons.arrow_back)),
         elevation: 0,
         backgroundColor: Colors.transparent,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8,top: 8),
+            child: MyButton(color: bioGreen, text: 'button_lang'.tr, width: 50, height: 30,
+                onTap: changeLanguage
+
+            ),
+          ),
+        ],
       ),
       backgroundColor: bioBlue,
       body: Padding(
@@ -137,9 +146,9 @@ class _WeatherPageState extends State<WeatherPage> {
                               children: [
                                 Column(
                                   children: [
-                                    const Text(
-                                      'Sıcaklık',
-                                      style: TextStyle(
+                                     Text(
+                                      'weather_sıcaklık'.tr,
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 17,
                                       ),
@@ -162,9 +171,9 @@ class _WeatherPageState extends State<WeatherPage> {
                                 ),
                                 Column(
                                   children: [
-                                    const Text(
-                                      'Rüzgar',
-                                      style: TextStyle(
+                                     Text(
+                                      'weather_rüzgar'.tr,
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 17,
                                       ),
@@ -187,9 +196,9 @@ class _WeatherPageState extends State<WeatherPage> {
                                 ),
                                 Column(
                                   children: [
-                                    const Text(
-                                      'Nem',
-                                      style: TextStyle(
+                                    Text(
+                                      'weather_nem'.tr,
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 17,
                                       ),
