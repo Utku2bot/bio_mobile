@@ -1,5 +1,6 @@
 import 'package:biocoder/Pages/weather_page.dart';
 import 'package:biocoder/Utils/colors.dart';
+import 'package:biocoder/Utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:future_builder_ex/future_builder_ex.dart';

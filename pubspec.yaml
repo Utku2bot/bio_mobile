@@ -45,6 +45,14 @@ dependencies:
   location: ^4.4.0
   get: ^4.6.5
   future_builder_ex: ^2.1.1
+  d_chart: ^2.2.11
+  date_format: ^2.0.7
+  date_time_format: ^2.0.1
+  fl_chart: ^0.60.0
+  google_maps_flutter: ^2.2.3
+  settings_ui: ^2.0.2
+  flutter_login: ^4.1.1
+  flutter_polygon: ^0.3.0+2
 
 
 dev_dependencies:

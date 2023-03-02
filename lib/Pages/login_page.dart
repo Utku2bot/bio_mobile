@@ -8,7 +8,7 @@ import '../Widgets/widget_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
-// 783, 392
+
   @override
   Widget build(BuildContext context) {
     final passwordController = TextEditingController();
@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(width: 10,),
-                    Text("login_üyedeğilmisiniz".tr,style: TextStyle(color: bioBlue,fontSize: 18,fontWeight: FontWeight.w500),),
+                    Text("login_üyedeğilmisiniz".tr,style: const TextStyle(color: bioBlue,fontSize: 18,fontWeight: FontWeight.w500),),
                     MyTextButton(
                       text: 'login_kayıtol'.tr,
                       onPressed: null,

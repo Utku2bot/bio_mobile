@@ -2,12 +2,13 @@ import 'dart:convert';
 import 'package:biocoder/Models/weather_model.dart';
 import 'package:biocoder/Pages/home_page.dart';
 import 'package:biocoder/Utils/colors.dart';
+import 'package:biocoder/Utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
-import '../Widgets/my_button.dart';
+
 
 
 class WeatherPage extends StatefulWidget {
@@ -33,11 +34,6 @@ class _WeatherPageState extends State<WeatherPage> {
     }
   }
 
-  void changeLanguage(){
-    Get.updateLocale(
-        Get.locale == const Locale("tr","TR") ?  const Locale("en","EN")  :  const Locale("tr","TR")
-    );
-  }
 
   late Future<Weather> myWeather;
 
@@ -53,7 +49,7 @@ class _WeatherPageState extends State<WeatherPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        toolbarHeight: 30,
+        toolbarHeight: Dimensions.toolbarHeight,
         leading: IconButton(
             onPressed: () {
               Get.to(()=> const HomePage());
@@ -61,22 +57,13 @@ class _WeatherPageState extends State<WeatherPage> {
             icon: const Icon(Icons.arrow_back)),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8,top: 8),
-            child: MyButton(color: bioGreen, text: 'button_lang'.tr, width: 50, height: 30,
-                onTap: changeLanguage
-
-            ),
-          ),
-        ],
       ),
       backgroundColor: bioBlue,
       body: Padding(
-        padding: const EdgeInsets.only(
-          left: 15.0,
-          right: 15.0,
-          top: 30.0,
+        padding:  EdgeInsets.only(
+          left: Dimensions.padWidth10*1.5,
+          right: Dimensions.padWidth10*1.5,
+          top: Dimensions.padHeight30,
         ),
         child: Stack(
           children: [
@@ -88,8 +75,8 @@ class _WeatherPageState extends State<WeatherPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [],
                   ),
-                  const SizedBox(
-                    height: 20,
+                   SizedBox(
+                    height: Dimensions.padHeight10*2,
                   ),
                   FutureBuilder<Weather>(
                     future: myWeather,
@@ -106,8 +93,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(
-                              height: 8,
+                             SizedBox(
+                              height: Dimensions.padHeight10,
                             ),
                             Text(
                               snapshot.data!.weather[0]['main'].toString(),
@@ -118,8 +105,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
+                             SizedBox(
+                              height: Dimensions.padHeight10,
                             ),
                             Text(
                               '${DateTime.now().day}.${DateTime.now().month}.${DateTime.now().year}  ',
@@ -127,10 +114,10 @@ class _WeatherPageState extends State<WeatherPage> {
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 20),
+                             SizedBox(height: Dimensions.padHeight10*2),
                             Container(
-                              height: 250,
-                              width: 250,
+                              height:( Dimensions.height200/2)*1.5,
+                              width: Dimensions.width200,
                               decoration: const BoxDecoration(
                                   image: DecorationImage(
                                 image: AssetImage(
@@ -138,9 +125,7 @@ class _WeatherPageState extends State<WeatherPage> {
                                 ),
                               )),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -153,8 +138,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                         fontSize: 17,
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 10,
+                                     SizedBox(
+                                      height: Dimensions.padHeight10,
                                     ),
                                     Text(
                                       '${((snapshot.data!.main['temp'] - 32 * 5) / 9).toStringAsFixed(2)}',
@@ -166,8 +151,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                     )
                                   ],
                                 ),
-                                const SizedBox(
-                                  width: 50,
+                              SizedBox(
+                                  width: Dimensions.padWidth50,
                                 ),
                                 Column(
                                   children: [
@@ -178,8 +163,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                         fontSize: 17,
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 10,
+                                  SizedBox(
+                                      height: Dimensions.padHeight10,
                                     ),
                                     Text(
                                       '${snapshot.data!.wind['speed']} km/h',
@@ -191,8 +176,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                     )
                                   ],
                                 ),
-                                const SizedBox(
-                                  width: 50,
+                                 SizedBox(
+                                  width: Dimensions.padWidth50,
                                 ),
                                 Column(
                                   children: [
@@ -203,8 +188,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                         fontSize: 17,
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 10,
+                                    SizedBox(
+                                      height: Dimensions.padHeight10,
                                     ),
                                     Text(
                                       '${snapshot.data!.main['humidity']}%',
@@ -218,8 +203,8 @@ class _WeatherPageState extends State<WeatherPage> {
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 30,
+                           SizedBox(
+                              height: Dimensions.padHeight10*3,
                             ),
                           ],
                         );
@@ -231,6 +216,17 @@ class _WeatherPageState extends State<WeatherPage> {
                         );
                       }
                     },
+                  ),
+                  Text("havakalitesi".tr,style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    letterSpacing: 1.3,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  SizedBox(height: Dimensions.padHeight10,),
+                  Image.asset(
+                    "assets/air.png",
+                    scale: 1,
                   ),
                 ],
               ),

@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:biocoder/Utils/colors.dart';
+import 'package:biocoder/Utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class HexagonWidget extends StatelessWidget {
@@ -24,14 +25,14 @@ class HexagonWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        //color: Colors.grey,
-        width: 60,
-        height: 60,
+       // color: Colors.red,
+        width: Dimensions.padWidth10*(6.5),
+        height: Dimensions.padWidth10*(6),
         child:
         CustomPaint(
           painter: HexagonPainter(Offset(offset, offset), size,color),
           child: Center(
-            child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w500),),
+            child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w500),),
           ),
         ),
             ),

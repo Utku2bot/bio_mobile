@@ -1,3 +1,4 @@
+import 'package:biocoder/Pages/login.dart';
 import 'package:biocoder/Pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,12 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-      translations: Messages(), // your translations
-      locale: const Locale('tr', 'TR'), // translations will be displayed in that locale
-      fallbackLocale: const Locale('en', 'UK'), // specify the fallback locale in case an invalid locale is selected.
+      translations: Messages(),
+      locale: const Locale('tr', 'TR'),
+      fallbackLocale: const Locale('en', 'UK'),
 
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: LoginScreen(),
     );
   }
 }
