@@ -53,6 +53,7 @@ dependencies:
   settings_ui: ^2.0.2
   flutter_login: ^4.1.1
   flutter_polygon: ^0.3.0+2
+  gradient_widgets: ^0.6.0
 
 
 dev_dependencies:

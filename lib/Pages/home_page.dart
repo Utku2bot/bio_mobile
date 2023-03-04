@@ -4,8 +4,8 @@ import 'package:biocoder/Widgets/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 import 'package:get/get.dart';
-
 import '../Utils/colors.dart';
+import '../Widgets/hexagon_container.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -55,14 +55,56 @@ class _HomePageState extends State<HomePage> {
             Get.to(() => LoginScreen());
           },
         ),
-        body: Container(
-          height: 440,
-          width: 380,
-          color: Colors.yellow,
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Stack(
+        body: Center(child: buildHexagonGrid()));
+  }
+
+
+  Container buildHexagonGrid() {
+    return Container(
+        height: 520,
+        width: 360,
+
+        child: Stack(
+        children: [
+            Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+
+                          width: 50,
+                          height: 220,
+
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.only(top: 130),
+                          child: HexagonContainer(
+                            rotation: 90,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        HexagonContainer(
+                          rotation: 90,
+                        ),
+                        HexagonContainer(rotation: 90),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
                   Stack(
@@ -73,140 +115,65 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Container(
                             width: 50,
-                            height: 220,
+                            height: 280,
                           ),
-                          NewWidget(
-                            rotation: 90,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom :  5),
+                            child: HexagonContainer(
+                              rotation:90,
+                            ),
                           ),
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NewWidget(
+                          HexagonContainer(
                             rotation: 90,
                           ),
-                          NewWidget(rotation: 90),
+                          HexagonContainer(rotation: 90),
                         ],
                       ),
                     ],
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 220,
-                            ),
-                            NewWidget(
-                              rotation: 90,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            NewWidget(
-                              rotation: 90,
-                            ),
-                            NewWidget(rotation: 90),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Align(
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Stack(
                 alignment: Alignment.bottomCenter,
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 220,
-                            ),
-
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            NewWidget(
-                              rotation: 90,
-                            ),
-                            NewWidget(rotation: 90),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ));
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 270,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          HexagonContainer(
+                            rotation: 90,
+                          ),
+                          HexagonContainer(rotation: 90),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      );
   }
 }
 
-class NewWidget extends StatelessWidget {
-  final double rotation;
 
-  const NewWidget({
-    super.key,
-    required this.rotation,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 120,
-      height: 120,
-      child: Stack(
-        alignment: AlignmentDirectional.center,
-        children: [
-          ClipPolygon(
-            sides: 6,
-            borderRadius: 5.0, // Defaults to 0.0 degrees
-            rotate: rotation, // Defaults to 0.0 degrees
-            boxShadows: [
-              PolygonBoxShadow(color: Colors.black, elevation: 10.0),
-            ],
-          ),
-          ClipPolygon(
-              sides: 6,
-              borderRadius: 5.0,
-              // Defaults to 0.0 degrees
-              rotate: rotation,
-              // Defaults to 0.0 degrees
-              boxShadows: [
-                PolygonBoxShadow(color: Colors.black, elevation: 0.0),
-              ],
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text("deneme"),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(bioGrey),
-                ),
-              )),
-        ],
-      ),
-    );
-  }
-}
