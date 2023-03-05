@@ -1,14 +1,25 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 
-import '../Utils/colors.dart';
+
 
 class HexagonContainer extends StatelessWidget {
-  final double rotation;
 
-  const HexagonContainer({
+  final Color color;
+  final String text;
+  final  onTap;
+  final String image;
+  final double scale;
+
+   const HexagonContainer({
     super.key,
-    required this.rotation,
+    required this.color,
+    required this.text
+    ,required this.onTap,
+     required this.image,
+     required this.scale
   });
 
   @override
@@ -22,42 +33,58 @@ class HexagonContainer extends StatelessWidget {
           ClipPolygon(
             sides: 6,
             borderRadius: 5.0,
-            rotate: rotation,
+            rotate: 90,
             boxShadows: [
-              PolygonBoxShadow(color: bioGreen, elevation: 10.0),
+              PolygonBoxShadow(color: color, elevation: 10.0),
             ],
-            child: Container(color: bioGreen),
+            child: Container(color: color),
           ),
           SizedBox(
-            height: 110,
-            width: 110,
+            height: 115,
+            width: 115,
             child: ClipPolygon(
               sides: 6,
               borderRadius: 5.0,
-              rotate: rotation,
+              rotate: 90,
               boxShadows: [
-                PolygonBoxShadow(color: bioGreen, elevation: 5.0),
+                PolygonBoxShadow(color: Colors.white, elevation: 5.0),
               ],
+
               child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    colors: [Color(0xff5f5f5f), Color(0xff002327)],
-                  ),
-                ),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: RadialGradient(
+                      colors: [Color(0xffa2a2a2), Color(0xff000000)],
+                      center: Alignment.center,
+                      radius: 0.8,
+                    )),
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Ayarlar",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),
-                  ),
+                  onPressed: onTap
+                  ,
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Image.asset(
+                    "assets/$image.png",
+                    scale: scale,
+                  )
+                    ,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        text,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ],)
+
                 ),
               ),
             ),
