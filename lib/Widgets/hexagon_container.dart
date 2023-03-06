@@ -1,26 +1,22 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 
-
-
 class HexagonContainer extends StatelessWidget {
-
   final Color color;
   final String text;
-  final  onTap;
+  final onTap;
   final String image;
   final double scale;
+  final double padding;
 
-   const HexagonContainer({
-    super.key,
-    required this.color,
-    required this.text
-    ,required this.onTap,
-     required this.image,
-     required this.scale
-  });
+  const HexagonContainer(
+      {super.key,
+      required this.color,
+      required this.text,
+      required this.onTap,
+      required this.image,
+      required this.scale,
+      required this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +45,6 @@ class HexagonContainer extends StatelessWidget {
               boxShadows: [
                 PolygonBoxShadow(color: Colors.white, elevation: 5.0),
               ],
-
               child: Container(
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -59,32 +54,31 @@ class HexagonContainer extends StatelessWidget {
                       radius: 0.8,
                     )),
                 child: ElevatedButton(
-                  onPressed: onTap
-                  ,
+                  onPressed: onTap,
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
                   ),
-                  child: Column(
+                  /*child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Image.asset(
-                    "assets/$image.png",
-                    scale: scale,
-                  )
-                    ,
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Text(
-                        text,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
+                      Image.asset(
+                        "assets/$image.png",
+                        scale: scale,
                       ),
-                    ),
-                  ],)
-
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: padding),
+                        child: Text(
+                          text,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ],
+                  ),*/
+                  child: null,
                 ),
               ),
             ),

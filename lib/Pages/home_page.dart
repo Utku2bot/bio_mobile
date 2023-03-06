@@ -9,7 +9,6 @@ import 'package:biocoder/Utils/dimensions.dart';
 import 'package:biocoder/Widgets/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../Utils/colors.dart';
 import '../Widgets/hexagon_container.dart';
 import 'audio_page.dart';
@@ -90,8 +89,9 @@ class _HomePageState extends State<HomePage> {
                             Get.to(() => const StatusPage());
                           },
                           text: 'home_durum'.tr,
-                          image: "audio",
+                          image: "audio_image",
                           scale: 2,
+                          padding: 15,
                         ),
                       ),
                     ],
@@ -105,8 +105,9 @@ class _HomePageState extends State<HomePage> {
                           Get.to(() => const UserPage());
                         },
                         text: 'home_kullanıcı'.tr,
-                        image: "audio",
+                        image: "audio_image",
                         scale: 2,
+                        padding: 15,
                       ),
                       HexagonContainer(
                         color: bioBacground,
@@ -114,8 +115,9 @@ class _HomePageState extends State<HomePage> {
                           Get.to(() => const SettingsPage());
                         },
                         text: 'home_ayarlar'.tr,
-                        image: "audio",
+                        image: "audio_image",
                         scale: 2,
+                        padding: 15,
                       ),
                     ],
                   ),
@@ -148,6 +150,7 @@ class _HomePageState extends State<HomePage> {
                             text: 'home_sıcaklıkvenem'.tr,
                             image: "icontemp",
                             scale: 3,
+                            padding: 15,
 
                           ),
                         ),
@@ -162,8 +165,9 @@ class _HomePageState extends State<HomePage> {
                             Get.to(() => const AudioPage());
                           },
                           text: 'home_ses'.tr,
-                          image: "audio",
+                          image: "audio_image",
                           scale: 2,
+                          padding: 15,
 
                         ),
                         HexagonContainer(
@@ -173,7 +177,8 @@ class _HomePageState extends State<HomePage> {
                           },
                           text: 'home_konum'.tr,
                           image: "googlemark",
-                          scale: 2,
+                          scale: 2.5,
+                          padding: 14,
 
                         ),
                       ],
@@ -211,6 +216,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'home_havadurumu'.tr,
                           image: "cloudy",
                           scale: 14,
+                          padding: 15,
 
                         ),
                         HexagonContainer(
@@ -220,7 +226,8 @@ class _HomePageState extends State<HomePage> {
                           },
                           text: 'home_ağırlık'.tr,
                           image: "weight",
-                          scale: 1.5,
+                          scale: 2,
+                          padding: 15,
 
                         ),
                       ],

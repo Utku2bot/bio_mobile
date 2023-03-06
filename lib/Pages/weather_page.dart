@@ -225,7 +225,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),),
                   SizedBox(height: Dimensions.padHeight10,),
                   Image.asset(
-                    "assets/air.png",
+                    "assets/air_char.png",
                     scale: 1,
                   ),
                 ],

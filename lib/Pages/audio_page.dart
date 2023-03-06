@@ -28,7 +28,7 @@ class _AudioPageState extends State<AudioPage> {
                 width: Dimensions.width200,
                 height: Dimensions.height200,
                 child:  Image.asset(
-                  "assets/audio.png",
+                  "assets/audio_image.png",
                   scale: 1,
                 ),
               ),

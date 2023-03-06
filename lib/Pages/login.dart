@@ -83,15 +83,29 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
       resizeToAvoidBottomInset: false,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: InkWell(
         onTap: () {
           Get.to(() => const HomePage());
         },
-        child: Image.asset(
-          'assets/biocoder.png',
-          scale: 6,
-        ),
+        child: Material(
+borderRadius: BorderRadius.circular(20)
+        ,
+          elevation: 12,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius:const BorderRadius.all(Radius.circular(50)),
+            ),
+            child: Image.asset(
+              'assets/biocoder.png',
+              scale: 6,
+            ),
+          ),
+        )
       ),
       body: FlutterLogin(
         messages: LoginMessages(),
@@ -107,6 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           cardTheme: const CardTheme(
             color: Colors.white,
+
           ),
         ),
         onLogin: _authUser,
