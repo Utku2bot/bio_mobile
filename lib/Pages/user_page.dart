@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Utils/colors.dart';
+
 class UserPage extends StatefulWidget {
   const UserPage({Key? key}) : super(key: key);
 
@@ -12,7 +14,9 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("user"),
+        centerTitle: true,
+        backgroundColor: bioBlue,
+        title: Text("User"),
       ),
     );
   }

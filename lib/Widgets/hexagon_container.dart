@@ -59,13 +59,13 @@ class HexagonContainer extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
                   ),
-                  /*child: Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        "assets/$image.png",
-                        scale: scale,
-                      ),
+                       "assets/audio_image.png",
+                        scale: 2,
+                        ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: padding),
                         child: Text(
@@ -77,8 +77,8 @@ class HexagonContainer extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),*/
-                  child: null,
+                  ),
+
                 ),
               ),
             ),
@@ -88,3 +88,7 @@ class HexagonContainer extends StatelessWidget {
     );
   }
 }
+/*Image.asset(
+"assets/$image.png",
+scale: scale,
+),*/

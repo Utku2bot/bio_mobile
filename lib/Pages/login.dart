@@ -90,8 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Get.to(() => const HomePage());
         },
         child: Material(
-borderRadius: BorderRadius.circular(20)
-        ,
+borderRadius: BorderRadius.circular(20),
           elevation: 12,
           child: Container(
             width: 100,
@@ -102,7 +101,7 @@ borderRadius: BorderRadius.circular(20)
             ),
             child: Image.asset(
               'assets/biocoder.png',
-              scale: 6,
+              scale: 5,
             ),
           ),
         )

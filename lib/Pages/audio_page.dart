@@ -22,15 +22,12 @@ class _AudioPageState extends State<AudioPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("home_ses".tr),
-            Padding(
-              padding:  EdgeInsets.only(top: Dimensions.padHeight10*1.5),
-              child: Container(
-                width: Dimensions.width200,
-                height: Dimensions.height200,
-                child:  Image.asset(
-                  "assets/audio_image.png",
-                  scale: 1,
-                ),
+            SizedBox(
+              width: Dimensions.width200/2,
+              height:  Dimensions.height200/2,
+              child: Image.asset(
+                "assets/audio_image.png",
+                scale: 2,
               ),
             )
 
@@ -42,7 +39,7 @@ class _AudioPageState extends State<AudioPage> {
         child: Center(
           child:
           Image.asset(
-            "assets/charaudio.png",
+            "assets/audio_char.png",
             scale: 1,
           ),
         ),

@@ -117,11 +117,11 @@ class _WeatherPageState extends State<WeatherPage> {
                              SizedBox(height: Dimensions.padHeight10*2),
                             Container(
                               height:( Dimensions.height200/2)*1.5,
-                              width: Dimensions.width200,
+                              width: Dimensions.width200/2,
                               decoration: const BoxDecoration(
                                   image: DecorationImage(
                                 image: AssetImage(
-                                  'assets/cloudy.png',
+                                  'assets/cloudy_image.png',
                                 ),
                               )),
                             ),

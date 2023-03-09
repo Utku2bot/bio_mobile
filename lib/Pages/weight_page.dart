@@ -21,15 +21,12 @@ class _WeightPageState extends State<WeightPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Weight"),
-           Padding(
-             padding:  EdgeInsets.only(top: Dimensions.padHeight10*1.5),
-             child: Container(
-               width: Dimensions.width200,
-               height: Dimensions.height200,
-               child:  Image.asset(
-                 "assets/weight.png",
-                 scale: 1,
-               ),
+           SizedBox(
+             width: Dimensions.width200,
+             height: Dimensions.height200,
+             child:  Image.asset(
+               "assets/weight_image.png",
+               scale: 2,
              ),
            )
 

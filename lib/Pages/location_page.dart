@@ -33,12 +33,12 @@ class _LocationPageState extends State<LocationPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("home_konum".tr),
-              Container(
-                width: Dimensions.width200,
-                height:  Dimensions.height200,
+              SizedBox(
+                width: Dimensions.width200/2,
+                height:  Dimensions.height200/2,
                 child:  Image.asset(
-                  "assets/googlemark.png",
-                  scale: 1,
+                  "assets/googlemark_image.png",
+                  scale: 2,
                 ),
               )
 

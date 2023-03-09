@@ -20,6 +20,7 @@ class _TempHumiPageState extends State<TempHumiPage> {
           backgroundColor: bioGreen,
           elevation: 0,
           title: Text("home_sıcaklıkvenem".tr),
+          centerTitle: true,
         ),
 
         body: Padding(
@@ -35,14 +36,14 @@ class _TempHumiPageState extends State<TempHumiPage> {
                     width: Dimensions.width200/2,
                     height: Dimensions.height200/2,
                     child: Image.asset(
-                      "assets/icontemp.png",
-                      scale: 1,
+                      "assets/temp_image.png",
+                      scale: 3,
                     ),
                   ),
                 ],
               ),
               Image.asset(
-                "assets/temperature.png",
+                "assets/temperature_char.png",
                 scale: 1,
               ),
               Padding(
@@ -60,15 +61,15 @@ class _TempHumiPageState extends State<TempHumiPage> {
                             width: Dimensions.padWidth10*4,
                             height: Dimensions.padHeight10*4,
                             child: Image.asset(
-                              "assets/humi.png",
-                              scale: 1,
+                              "assets/humi_image.png",
+                              scale: 2,
                             ),
                           ),
                         ],
                       ),
                     ),
                   Image.asset(
-                      "assets/humidity.png",
+                      "assets/humidity_char.png",
                       scale: 1,
                     )
                   ],

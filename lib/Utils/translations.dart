@@ -38,7 +38,8 @@ class Messages extends Translations {
           "15dk": "15min",
           "20dk": "20min",
           "12saat" : "12 hour",
-          "24saat" : "24 hour"
+          "24saat" : "24 hour",
+          "yardım" : "Support"
 
         },
         'tr_TR': {
@@ -76,7 +77,8 @@ class Messages extends Translations {
           "15dk": "15dk",
           "20dk": "20dk",
           "12saat" : "12 saat",
-          "24saat" : "24 saat"
+          "24saat" : "24 saat",
+  "yardım" : "Yardım"
         }
       };
 }

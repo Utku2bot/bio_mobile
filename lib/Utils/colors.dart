@@ -8,6 +8,7 @@ const Color bioGrey = Color(0xFF5f5f5f);
 
 
 
+const Color bioGold = Color(0xFFC99200);
 
 
 

@@ -59,11 +59,15 @@ class _HomePageState extends State<HomePage> {
             Get.to(() => LoginScreen());
           },
         ),
-        body: Center(child: buildHexagonGrid()));
+        body: Padding(
+          padding:  EdgeInsets.only(bottom: Dimensions.padHeight50),
+          child: Center(child: buildHexagonGrid()),
+        ));
   }
 
   Container buildHexagonGrid() {
     return Container(
+
       height: 520,
       width: 360,
       child: Stack(
@@ -71,24 +75,45 @@ class _HomePageState extends State<HomePage> {
           Stack(
             alignment: Alignment.bottomCenter,
             children: [
+              HexagonContainer(
+                color: bioGold,
+                onTap: () {
+                  Get.to(() => const SettingsPage());
+                },
+                text: 'home_ayarlar'.tr,
+                image: "audio_image",
+                scale: 2,
+                padding: 15,
+              ),
               Stack(
                 alignment: Alignment.center,
                 children: [
                   Stack(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.topCenter,
                     children: [
                       Container(
                         width: 50,
                         height: 220,
                       ),
+                      HexagonContainer(
+                        color: bioGold,
+                        onTap: () {
+                          Get.to(() => const StatusPage());
+                        },
+                        text: 'home_durum'.tr,
+                        image: "audio_image",
+                        scale: 2,
+                        padding: 15,
+                      ),
+
                       Padding(
                         padding: EdgeInsets.only(top: 130),
                         child: HexagonContainer(
                           color: bioBlue,
                           onTap: () {
-                            Get.to(() => const StatusPage());
+                            Get.to(() => const TempHumiPage());
                           },
-                          text: 'home_durum'.tr,
+                          text: 'home_sıcaklıkvenem'.tr,
                           image: "audio_image",
                           scale: 2,
                           padding: 15,
@@ -99,8 +124,9 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
                       HexagonContainer(
-                        color: bioBacground,
+                        color: bioGold,
                         onTap: () {
                           Get.to(() => const UserPage());
                         },
@@ -110,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                         padding: 15,
                       ),
                       HexagonContainer(
-                        color: bioBacground,
+                        color: bioGold,
                         onTap: () {
                           Get.to(() => const SettingsPage());
                         },
@@ -147,8 +173,8 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Get.to(() => const TempHumiPage());
                             },
-                            text: 'home_sıcaklıkvenem'.tr,
-                            image: "icontemp",
+                            text: 'yardım'.tr,
+                            image: "temp_image",
                             scale: 3,
                             padding: 15,
 
@@ -176,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                             Get.to(() => LocationPage());
                           },
                           text: 'home_konum'.tr,
-                          image: "googlemark",
+                          image: "googlemark_image",
                           scale: 2.5,
                           padding: 14,
 
@@ -203,6 +229,7 @@ class _HomePageState extends State<HomePage> {
                           width: 50,
                           height: 270,
                         ),
+
                       ],
                     ),
                     Row(
@@ -214,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                             Get.to(() => const WeatherWelcomePage());
                           },
                           text: 'home_havadurumu'.tr,
-                          image: "cloudy",
+                          image: "weather_image",
                           scale: 14,
                           padding: 15,
 
@@ -225,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                             Get.to(() => const WeightPage());
                           },
                           text: 'home_ağırlık'.tr,
-                          image: "weight",
+                          image: "weight_image",
                           scale: 2,
                           padding: 15,
 
