@@ -1,3 +1,4 @@
+import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 
@@ -54,6 +55,7 @@ class HexagonContainer extends StatelessWidget {
                       radius: 0.8,
                     )),
                 child: ElevatedButton(
+
                   onPressed: onTap,
                   style: ButtonStyle(
                     backgroundColor:
@@ -62,19 +64,15 @@ class HexagonContainer extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                       "assets/audio_image.png",
-                        scale: 2,
-                        ),
+                      Opacity(
+                        opacity: 0.3,
+                        child: Image.asset("assets/$image.png",
+                          scale: scale,),
+                      ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: padding),
-                        child: Text(
-                          text,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
+                        child: EasyRichText(text,)
+                        ,
                       ),
                     ],
                   ),
@@ -88,7 +86,13 @@ class HexagonContainer extends StatelessWidget {
     );
   }
 }
-/*Image.asset(
-"assets/$image.png",
-scale: scale,
+
+
+
+/*Text(
+text,
+style: const TextStyle(
+color: Colors.white,
+fontSize: 14,
+fontWeight: FontWeight.w400),
 ),*/

@@ -101,22 +101,22 @@ class _HomePageState extends State<HomePage> {
                           Get.to(() => const StatusPage());
                         },
                         text: 'home_durum'.tr,
-                        image: "audio_image",
-                        scale: 2,
+                        image: "hive_image",
+                        scale: 15,
                         padding: 15,
                       ),
 
                       Padding(
-                        padding: EdgeInsets.only(top: 130),
+                        padding: EdgeInsets.only(top: 127),
                         child: HexagonContainer(
                           color: bioBlue,
                           onTap: () {
                             Get.to(() => const TempHumiPage());
                           },
                           text: 'home_sıcaklıkvenem'.tr,
-                          image: "audio_image",
-                          scale: 2,
-                          padding: 15,
+                          image: "temp_image",
+                          scale: 3,
+                          padding: 10,
                         ),
                       ),
                     ],
@@ -131,9 +131,9 @@ class _HomePageState extends State<HomePage> {
                           Get.to(() => const UserPage());
                         },
                         text: 'home_kullanıcı'.tr,
-                        image: "audio_image",
-                        scale: 2,
-                        padding: 15,
+                        image: "user_image",
+                        scale: 3,
+                        padding: 14,
                       ),
                       HexagonContainer(
                         color: bioGold,
@@ -141,8 +141,8 @@ class _HomePageState extends State<HomePage> {
                           Get.to(() => const SettingsPage());
                         },
                         text: 'home_ayarlar'.tr,
-                        image: "audio_image",
-                        scale: 2,
+                        image: "settings_image",
+                        scale: 12,
                         padding: 15,
                       ),
                     ],
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                               Get.to(() => const TempHumiPage());
                             },
                             text: 'yardım'.tr,
-                            image: "temp_image",
+                            image: "question_image",
                             scale: 3,
                             padding: 15,
 

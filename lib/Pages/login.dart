@@ -1,7 +1,6 @@
 import 'package:biocoder/Pages/home_page.dart';
 import 'package:biocoder/Utils/colors.dart';
 import 'package:biocoder/Utils/dimensions.dart';
-import 'package:biocoder/Widgets/widget_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<String?> _signupUser(SignupData data) {
-
     debugPrint('Signup Name: ${data.name}, Password: ${data.password}');
     return Future.delayed(loginTime).then((_) {
       return null;
@@ -67,8 +65,6 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-
-
         actions: [
           Padding(
             padding: EdgeInsets.only(
@@ -83,29 +79,27 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
       resizeToAvoidBottomInset: false,
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: InkWell(
-        onTap: () {
-          Get.to(() => const HomePage());
-        },
-        child: Material(
-borderRadius: BorderRadius.circular(20),
-          elevation: 12,
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius:const BorderRadius.all(Radius.circular(50)),
+          onTap: () {
+            Get.to(() => const HomePage());
+          },
+          child: Material(
+            borderRadius: BorderRadius.circular(20),
+            elevation: 12,
+            child: Container(
+              width: 100,
+              height: 100,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+              ),
+              child: Image.asset(
+                'assets/biocoder.png',
+                scale: 5,
+              ),
             ),
-            child: Image.asset(
-              'assets/biocoder.png',
-              scale: 5,
-            ),
-          ),
-        )
-      ),
+          )),
       body: FlutterLogin(
         messages: LoginMessages(),
         headerWidget: Center(
@@ -117,10 +111,8 @@ borderRadius: BorderRadius.circular(20),
           cardInitialHeight: Dimensions.loginCardInitialHeight,
           buttonTheme: const LoginButtonTheme(backgroundColor: bioGreen),
           primaryColor: bioGrey,
-
           cardTheme: const CardTheme(
             color: Colors.white,
-
           ),
         ),
         onLogin: _authUser,
@@ -129,7 +121,6 @@ borderRadius: BorderRadius.circular(20),
           Get.to(() => const HomePage());
         },
         onRecoverPassword: _recoverPassword,
-
       ),
     );
   }
