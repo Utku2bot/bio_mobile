@@ -1,6 +1,7 @@
 import 'package:biocoder/Pages/login.dart';
 import 'package:biocoder/Pages/settings_page.dart';
 import 'package:biocoder/Pages/status_page.dart';
+import 'package:biocoder/Pages/support_page.dart';
 import 'package:biocoder/Pages/temp_humi_page.dart';
 import 'package:biocoder/Pages/user_page.dart';
 import 'package:biocoder/Pages/weather_welcome_page.dart';
@@ -171,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                           child: HexagonContainer(
                             color: bioGreen,
                             onTap: () {
-                              Get.to(() => const TempHumiPage());
+                              Get.to(() => const SupportPage());
                             },
                             text: 'yardım'.tr,
                             image: "question_image",

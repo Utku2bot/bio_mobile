@@ -56,6 +56,9 @@ dependencies:
   gradient_widgets: ^0.6.0
   easy_rich_text: ^1.2.0
   profile: ^0.0.1
+  bs_flutter_datatable: ^1.2.5
+  data_table_2: ^2.4.1
+  expandable_datatable: ^0.0.7
 
 
 dev_dependencies:

@@ -1,6 +1,7 @@
 import 'package:biocoder/Utils/colors.dart';
 import 'package:biocoder/Utils/dimensions.dart';
-import 'package:d_chart/d_chart.dart';
+import 'package:expandable_datatable/expandable_datatable.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,10 +43,11 @@ class _TempHumiPageState extends State<TempHumiPage> {
                   ),
                 ],
               ),
-              Image.asset(
+              /*Image.asset(
                 "assets/temperature_char.png",
                 scale: 1,
-              ),
+              ),*/
+
               Padding(
                 padding: EdgeInsets.only(top: Dimensions.padHeight10),
                 child: Column(
