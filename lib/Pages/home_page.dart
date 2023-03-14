@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import '../Utils/colors.dart';
 import '../Widgets/hexagon_container.dart';
 import 'audio_page.dart';
+import 'deneme.dart';
 import 'location_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -51,14 +52,24 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: InkWell(
-          child: Image.asset(
-            "assets/logbee.png",
-            scale: 8,
-          ),
-          onTap: () {
-            Get.to(() => LoginScreen());
-          },
+        floatingActionButton: Row(
+          children: [
+            InkWell(
+              child: Image.asset(
+                "assets/logbee.png",
+                scale: 8,
+              ),
+              onTap: () {
+                Get.to(() => LoginScreen());
+              },
+            ),
+            InkWell(
+              onTap: (){
+                Get.to(()=>const Deneme());
+              },
+              child: Text("deneme"),
+            )
+          ],
         ),
         body: Padding(
           padding:  EdgeInsets.only(bottom: Dimensions.padHeight50),

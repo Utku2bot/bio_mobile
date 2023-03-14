@@ -58,7 +58,7 @@ class _WeightPageState extends State<WeightPage> {
                           numeric: false,
                           size: ColumnSize.S),
                       DataColumn2(
-                          label: Text('Boş Hali (gr)'),
+                          label: Text('Boş (dara)(gr)'),
                           numeric: true,
                           size: ColumnSize.M),
                       DataColumn2(
