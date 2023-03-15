@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:biocoder/Utils/dimensions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 import '../Utils/colors.dart';
 
 class WeightPage extends StatefulWidget {
@@ -66,7 +64,7 @@ class _WeightPageState extends State<WeightPage> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            /*Material(
+            Material(
               borderRadius: BorderRadius.circular(40),
               elevation: 5,
               child: Container(
@@ -82,6 +80,7 @@ class _WeightPageState extends State<WeightPage> {
                     columnSpacing: 12,
                     horizontalMargin: 12,
                     minWidth: 300,
+
                     columns: const [
                       DataColumn2(
                           label: Text('Cihaz'),
@@ -101,7 +100,7 @@ class _WeightPageState extends State<WeightPage> {
                           size: ColumnSize.S),
                     ],
                     rows: List<DataRow>.generate(
-                      10,
+                      5,
                       (index) => DataRow(
                         cells: [
                           DataCell(Text('Cihaz ${index + 1}')),
@@ -114,8 +113,8 @@ class _WeightPageState extends State<WeightPage> {
                   ),
                 ),
               ),
-            ),*/
-            FutureBuilder<List<Data>>(
+            ),
+            /*FutureBuilder<List<Data>>(
               future: fetchData(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -178,7 +177,7 @@ class _WeightPageState extends State<WeightPage> {
                 return const CircularProgressIndicator();
 
               },
-            ),
+            ),*/
             Material(
               elevation: 5,
               child: Image.asset(

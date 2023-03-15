@@ -1,9 +1,11 @@
+import 'package:biocoder/Pages/tem_humi_char_page.dart';
 import 'package:biocoder/Utils/colors.dart';
 import 'package:biocoder/Utils/dimensions.dart';
-import 'package:expandable_datatable/expandable_datatable.dart';
-
+import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../Widgets/elevated_container.dart';
 
 class TempHumiPage extends StatefulWidget {
   const TempHumiPage({Key? key}) : super(key: key);
@@ -27,58 +29,75 @@ class _TempHumiPageState extends State<TempHumiPage> {
         body: Padding(
           padding:  EdgeInsets.all(Dimensions.padWidth10),
           child: Column(
-
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("sıcaklık".tr,style: const TextStyle(fontSize: 30,fontWeight: FontWeight.w400),),
-                  SizedBox(
-                    width: Dimensions.width200/2,
-                    height: Dimensions.height200/2,
-                    child: Image.asset(
-                      "assets/temp_image.png",
-                      scale: 3,
-                    ),
-                  ),
-                ],
-              ),
-              /*Image.asset(
-                "assets/temperature_char.png",
-                scale: 1,
-              ),*/
 
-              Padding(
-                padding: EdgeInsets.only(top: Dimensions.padHeight10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.symmetric(vertical: Dimensions.padHeight10*2),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("nem".tr,style: const TextStyle(fontSize: 30,fontWeight: FontWeight.w400),),
-                          SizedBox(
-                            width: Dimensions.padWidth10*4,
-                            height: Dimensions.padHeight10*4,
-                            child: Image.asset(
-                              "assets/humi_image.png",
-                              scale: 2,
-                            ),
-                          ),
-                        ],
+              Material(
+                borderRadius: BorderRadius.circular(40),
+                elevation: 5,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                  width: Dimensions.width200*2,
+                  height: Dimensions.height200*2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: DataTable2(
+                      columnSpacing: 12,
+                      horizontalMargin: 12,
+                      minWidth:  (Dimensions.width200/2)*3,
+
+                      columns: const [
+                        DataColumn2(
+                            label: Text('Cihaz'),
+                            numeric: false,
+                            size: ColumnSize.S),
+                        DataColumn2(
+                            label: Text('Sıcaklık (°C)'),
+                            numeric: true,
+                            size: ColumnSize.M),
+                        DataColumn2(
+                            label: Text('Nem (%)'),
+                            numeric: true,
+                            size: ColumnSize.M),
+
+                      ],
+                      rows: List<DataRow>.generate(
+                        5,
+                            (index) => DataRow(
+                          cells: [
+                            DataCell(Text('Cihaz ${index + 1}')),
+                            DataCell(Text('${30+index}')),
+                            DataCell(Text('${50+index*5}')),
+
+                          ],
+                        ),
                       ),
                     ),
-                  Image.asset(
-                      "assets/humidity_char.png",
-                      scale: 1,
-                    )
-                  ],
+                  ),
                 ),
               ),
+
+
+
             ],
           ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: InkWell(
+          onTap: (){
+Get.to(()=>const TempHumiCharPage());
+
+          },
+          child: ElevatedContainer(
+            elevation: 5,
+            height: Dimensions.height200 / 4,
+            width: Dimensions.width200 ,
+            color: bioGreen,
+            text: "grafikler".tr,
+            fontSize: 20),
         ),
       ),
     );

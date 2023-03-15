@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
               child: Image.asset(
@@ -63,12 +64,12 @@ class _HomePageState extends State<HomePage> {
                 Get.to(() => LoginScreen());
               },
             ),
-            InkWell(
+            /*InkWell(
               onTap: (){
                 Get.to(()=>const Deneme());
               },
               child: Text("deneme"),
-            )
+            )*/
           ],
         ),
         body: Padding(

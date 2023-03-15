@@ -32,14 +32,23 @@ class Messages extends Translations {
           "ingilizce": "English",
           "sıcaklık": "Temperature",
           "nem": "Humidity",
+          "sıcaklıkgrafiği": "Temperature Graphic",
+          "nemgrafiği": "Humidity Graphic",
+          "nem": "Humidity",
           "havakalitesi": "Air Quality",
           "5dk": "5min",
           "10dk": "10min",
           "15dk": "15min",
           "20dk": "20min",
+          "30dk": "30min",
+          "60dk": "60min",
           "12saat": "12 hour",
           "24saat": "24 hour",
-          "yardım": "Support"
+          "yardım": "Support",
+          "hava": "Weather",
+          "smsemail": "SMS and Email",
+          "grafikler" : "View Graphics",
+  "sıcaklıkvenemgrafikleri" : "Temperature and Humidity Graphics"
         },
         'tr_TR': {
           "button_lang": "TR",
@@ -71,13 +80,22 @@ class Messages extends Translations {
           "sıcaklık": "Sıcaklık",
           "nem": "Nem",
           "havakalitesi": "Hava Kalitesi",
+          "hava": "Hava",
           "5dk": "5dk",
           "10dk": "10dk",
           "15dk": "15dk",
           "20dk": "20dk",
+          "30dk": "30dk",
+          "60dk": "60dk",
           "12saat": "12 saat",
           "24saat": "24 saat",
-          "yardım": "Yardım"
-        }
+          "yardım": "Yardım",
+          "smsemail": "SMS ve Email",
+          "grafikler" : "Grafikleri Görüntüle",
+          "sıcaklıkvenemgrafikleri" : "Sıcaklık ve Nem Grafikleri",
+          "sıcaklıkgrafiği": "Sıcaklık Grafiği",
+          "nemgrafiği": "Nem Grafiği",
+
+}
       };
 }

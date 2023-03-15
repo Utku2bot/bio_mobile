@@ -81,10 +81,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text('bildirimşekli'.tr),
                 trailing:DropdownButton(
                     value: 0,
-                    items: const [
+                    items:  [
                       DropdownMenuItem(child: Text("SMS"),value: 0,),
                       DropdownMenuItem(child: Text("Email"),value: 1,),
-                      DropdownMenuItem(child: Text("SMS ve Email"),value: 2,),
+                      DropdownMenuItem(child: Text("smsemail".tr),value: 2,),
                     ], onChanged: (value){
 
                 }),
@@ -97,26 +97,45 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsTile.navigation(
                 leading: const Text("30C°",style: TextStyle(fontWeight: FontWeight.w500),),
-                title: Text('sıcaklık'.tr),
+                title: Text('home_sıcaklıkvenem'.tr),
                 trailing: DropdownButton(
                     value: 0,
                     items:  [
                       DropdownMenuItem(
                         value: 0,
-                        child: Text("5dk".tr),
-                      ),
-                      DropdownMenuItem(
-                        value: 1,
-                        child: Text("10dk".tr),
-                      ),
-                      DropdownMenuItem(
-                        value: 2,
                         child: Text("15dk".tr),
                       ),
                       DropdownMenuItem(
-                        value: 3,
-                        child: Text("20dk".tr),
+                        value: 1,
+                        child: Text("30dk".tr),
                       ),
+                      DropdownMenuItem(
+                        value: 2,
+                        child: Text("60dk".tr),
+                      ),
+
+                    ],
+                    onChanged: (value) {}),
+              ),
+              SettingsTile.navigation(
+                leading: const Icon(Icons.filter_drama_outlined),
+                title: Text('hava'.tr),
+                trailing: DropdownButton(
+                    value: 0,
+                    items:  [
+                      DropdownMenuItem(
+                        value: 0,
+                        child: Text("15dk".tr),
+                      ),
+                      DropdownMenuItem(
+                        value: 1,
+                        child: Text("30dk".tr),
+                      ),
+                      DropdownMenuItem(
+                        value: 2,
+                        child: Text("60dk".tr),
+                      ),
+
                     ],
                     onChanged: (value) {}),
               ),
@@ -128,20 +147,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     items:  [
                       DropdownMenuItem(
                         value: 0,
-                        child: Text("5dk".tr),
+                        child: Text("30dk".tr),
                       ),
                       DropdownMenuItem(
                         value: 1,
-                        child: Text("10dk".tr),
+                        child: Text("60dk".tr),
                       ),
-                      DropdownMenuItem(
-                        value: 2,
-                        child: Text("15dk".tr),
-                      ),
-                      DropdownMenuItem(
-                        value: 3,
-                        child: Text("20dk".tr),
-                      ),
+
                     ],
                     onChanged: (value) {}),
               ),
@@ -155,6 +167,20 @@ class _SettingsPageState extends State<SettingsPage> {
                         value: 0,
                         child: Text("12saat".tr),
                       ),
+                      DropdownMenuItem(
+                        value: 1,
+                        child: Text("24saat".tr),
+                      )
+                    ],
+                    onChanged: (value) {}),
+              ),
+              SettingsTile.navigation(
+                leading: const Icon(Icons.place_outlined),
+                title: Text('home_konum'.tr),
+                trailing: DropdownButton(
+                    value: 1,
+                    items:  [
+
                       DropdownMenuItem(
                         value: 1,
                         child: Text("24saat".tr),
