@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-      initialRoute: ,
+
       translations: Messages(),
       locale: const Locale('tr', 'TR'),
       fallbackLocale: const Locale('en', 'UK'),
