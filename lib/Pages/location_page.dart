@@ -30,11 +30,13 @@ class _LocationPageState extends State<LocationPage> {
        Scaffold(
         appBar: AppBar(
           centerTitle: true,
-
           title: Text("home_konum".tr),
           backgroundColor: Colors.green[700],
         ),
         body: GoogleMap(
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
+          mapToolbarEnabled: true,
           markers: {markers},
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(

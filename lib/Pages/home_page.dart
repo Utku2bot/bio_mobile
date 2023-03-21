@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> {
             Get.to(() => LoginScreen());
           },
         ),
+
         body: Padding(
           padding:  EdgeInsets.only(bottom: Dimensions.padHeight50),
           child: Center(child: buildHexagonGrid()),

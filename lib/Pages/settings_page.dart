@@ -54,41 +54,54 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.notification_important_outlined),
-                  title: Text('bildirimaralığı'.tr),
-                  trailing: DropdownButton(
-                      value: 0,
-                      items:  [
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('bildirimaralığı'.tr),
+                      DropdownButton(
+
                           value: 0,
-                          child: Text("5dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("10dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("15dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 3,
-                          child: Text("20dk".tr),
-                        ),
-                      ],
-                      onChanged: (value) {}),
+                          items:  [
+                            DropdownMenuItem(
+                              value: 0,
+                              child: Text("5dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("10dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 2,
+                              child: Text("15dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 3,
+                              child: Text("20dk".tr),
+                            ),
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.circle_notifications),
-                  title: Text('bildirimşekli'.tr),
-                  trailing:DropdownButton(
-                      value: 0,
-                      items:  [
-                        DropdownMenuItem(child: Text("SMS"),value: 0,),
-                        DropdownMenuItem(child: Text("Email"),value: 1,),
-                        DropdownMenuItem(child: Text("smsemail".tr),value: 2,),
-                      ], onChanged: (value){
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('bildirimşekli'.tr),
+                      DropdownButton(
+                          value: 0,
+                          items:  [
+                            DropdownMenuItem(child: Text("SMS"),value: 0,),
+                            DropdownMenuItem(child: Text("Email"),value: 1,),
+                            DropdownMenuItem(child: Text("smsemail".tr),value: 2,),
+                          ], onChanged: (value){
 
-                  }),
+                      }),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.switchTile(
                   onToggle: (value) {},
@@ -98,96 +111,127 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsTile.navigation(
                   leading: const Text("30C°",style: TextStyle(fontWeight: FontWeight.w500),),
-                  title: Text('home_sıcaklıkvenem'.tr),
-                  trailing: DropdownButton(
-                      value: 0,
-                      items:  [
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('home_sıcaklıkvenem'.tr),
+                      DropdownButton(
                           value: 0,
-                          child: Text("15dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("30dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("60dk".tr),
-                        ),
+                          items:  [
+                            DropdownMenuItem(
+                              value: 0,
+                              child: Text("15dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("30dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 2,
+                              child: Text("60dk".tr),
+                            ),
 
-                      ],
-                      onChanged: (value) {}),
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.filter_drama_outlined),
-                  title: Text('hava'.tr),
-                  trailing: DropdownButton(
-                      value: 0,
-                      items:  [
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('hava'.tr),
+                      DropdownButton(
                           value: 0,
-                          child: Text("15dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("30dk".tr),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("60dk".tr),
-                        ),
+                          items:  [
+                            DropdownMenuItem(
+                              value: 0,
+                              child: Text("15dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("30dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 2,
+                              child: Text("60dk".tr),
+                            ),
 
-                      ],
-                      onChanged: (value) {}),
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.surround_sound),
-                  title: Text('home_ses'.tr),
-                  trailing: DropdownButton(
-                      value: 1,
-                      items:  [
-                        DropdownMenuItem(
-                          value: 0,
-                          child: Text("30dk".tr),
-                        ),
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('home_ses'.tr),
+                      DropdownButton(
                           value: 1,
-                          child: Text("60dk".tr),
-                        ),
+                          items:  [
+                            DropdownMenuItem(
+                              value: 0,
+                              child: Text("30dk".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("60dk".tr),
+                            ),
 
-                      ],
-                      onChanged: (value) {}),
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.line_weight),
-                  title: Text('home_ağırlık'.tr),
-                  trailing: DropdownButton(
-                      value: 1,
-                      items:  [
-                        DropdownMenuItem(
-                          value: 0,
-                          child: Text("12saat".tr),
-                        ),
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('home_ağırlık'.tr),
+                      DropdownButton(
                           value: 1,
-                          child: Text("24saat".tr),
-                        )
-                      ],
-                      onChanged: (value) {}),
+                          items:  [
+                            DropdownMenuItem(
+                              value: 0,
+                              child: Text("12saat".tr),
+                            ),
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("24saat".tr),
+                            )
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.place_outlined),
-                  title: Text('home_konum'.tr),
-                  trailing: DropdownButton(
-                      value: 1,
-                      items:  [
-
-                        DropdownMenuItem(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('home_konum'.tr),
+                      DropdownButton(
                           value: 1,
-                          child: Text("24saat".tr),
-                        )
-                      ],
-                      onChanged: (value) {}),
+                          items:  [
+
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("24saat".tr),
+                            )
+                          ],
+                          onChanged: (value) {}),
+                    ],
+                  ),
+
+
                 ),
               ],
             ),
