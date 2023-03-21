@@ -29,22 +29,9 @@ class _LocationPageState extends State<LocationPage> {
     return
        Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("home_konum".tr),
-              SizedBox(
-                width: Dimensions.width200/2,
-                height:  Dimensions.height200/2,
-                child:  Image.asset(
-                  "assets/googlemark_image.png",
-                  scale: 2,
-                ),
-              )
-
-            ],
-          ),
           centerTitle: true,
+
+          title: Text("home_konum".tr),
           backgroundColor: Colors.green[700],
         ),
         body: GoogleMap(

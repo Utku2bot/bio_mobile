@@ -21,7 +21,125 @@ class _UserPageState extends State<UserPage> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: bioBlue,
-        title: Text("User"),
+        title: Text("home_kullanıcı".tr),
+      ),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              alignment: AlignmentDirectional.bottomCenter,
+              children: [
+                ClipPath(
+                  clipper: CurvedBottomClipper(),
+                  child: Container(
+                    color: bioBlue,
+                    height: 110,
+                  ),
+                ),
+                Material(
+                  elevation: 10,
+                  borderRadius: BorderRadius.circular(100),
+                  child: Container(
+                    height: 100,
+                    width:  100,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(100)),
+                    child: Image.asset(
+                      "assets/user_image.png",
+                      scale: 1.5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: Dimensions.padWidth30,vertical: Dimensions.padHeight50/2),
+              child: Column(
+
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.account_circle, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("ad".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+                  SizedBox(height: Dimensions.padHeight10*1.5,),
+                  Container(height: 1,color: Colors.grey,),
+                  SizedBox(height: Dimensions.padHeight30,),
+                  Row(
+
+                    children: [
+                      Icon(Icons.accessibility, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("soyad".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+          SizedBox(height: Dimensions.padHeight10*1.5,),
+                  Container(height: 1,color: Colors.grey,),
+                  SizedBox(height: Dimensions.padHeight30,),
+                  Row(
+                    children: [
+                      Icon(Icons.account_balance, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("işletmeadı".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+                  SizedBox(height: Dimensions.padHeight10*1.5,),
+                  Container(height: 1,color: Colors.grey,),
+                  SizedBox(height: Dimensions.padHeight30,),
+                  Row(
+                    children: [
+                      Icon(Icons.numbers, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("işletmenumarası".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+                  SizedBox(height: Dimensions.padHeight10*1.5,),
+                  Container(height: 1,color: Colors.grey,),
+                  SizedBox(height: Dimensions.padHeight30,),
+                  Row(
+                    children: [
+                      Icon(Icons.hive, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("cihazadedi".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+                  SizedBox(height: Dimensions.padHeight10*1.5,),
+                  Container(height: 1,color: Colors.grey,),
+                  SizedBox(height: Dimensions.padHeight30,),
+                  Row(
+                     children: [
+                      Icon(Icons.adb, size: 40, color: bioBlue,),
+                      SizedBox(width: Dimensions.padWidth30*2,),
+                      Text("versiyon".tr, style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Material(
@@ -34,130 +152,12 @@ class _UserPageState extends State<UserPage> {
             color: bioGreen,
             borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
-          child:  Center(child:  Text("Güncelle",style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),)),
+          child:  Center(child:  Text("güncelle".tr,style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),)),
         ),
-      ),
-      body: Column(
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              ClipPath(
-                clipper: CurvedBottomClipper(),
-                child: Container(
-
-                  color: bioBlue,
-                  height: 110,
-                ),
-              ),
-              Material(
-                elevation: 10,
-                borderRadius: BorderRadius.circular(100),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100)),
-                  child: Image.asset(
-                    "assets/user_image.png",
-                    scale: 1.5,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: Dimensions.padWidth30,vertical: Dimensions.padHeight50/2),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.account_circle, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("Ad", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-                SizedBox(height: Dimensions.padHeight10*1.5,),
-                Container(height: 1,color: Colors.grey,),
-                SizedBox(height: Dimensions.padHeight30,),
-                Row(
-                  children: [
-                    Icon(Icons.accessibility, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("Soyad", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-                SizedBox(height: Dimensions.padHeight10*1.5,),
-                Container(height: 1,color: Colors.grey,),
-                SizedBox(height: Dimensions.padHeight30,),
-                Row(
-                  children: [
-                    Icon(Icons.account_balance, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("İşletme Adı", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-                SizedBox(height: Dimensions.padHeight10*1.5,),
-                Container(height: 1,color: Colors.grey,),
-                SizedBox(height: Dimensions.padHeight30,),
-                Row(
-                  children: [
-                    Icon(Icons.numbers, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("İşletme Numarası", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-                SizedBox(height: Dimensions.padHeight10*1.5,),
-                Container(height: 1,color: Colors.grey,),
-                SizedBox(height: Dimensions.padHeight30,),
-                Row(
-                  children: [
-                    Icon(Icons.hive, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("Cihaz Adedi", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-                SizedBox(height: Dimensions.padHeight10*1.5,),
-                Container(height: 1,color: Colors.grey,),
-                SizedBox(height: Dimensions.padHeight30,),
-                Row(
-                  children: [
-                    Icon(Icons.adb, size: 40, color: bioBlue,),
-                    SizedBox(width: Dimensions.padWidth30*2,),
-                    Text("Versiyon", style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400),),
-                  ],
-                ),
-
-
-              ],
-
-            ),
-          )
-        ],
       ),
     );
   }
 }
-
 
 
 class CurvedBottomClipper extends CustomClipper<Path> {

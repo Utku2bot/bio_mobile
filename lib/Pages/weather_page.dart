@@ -63,13 +63,12 @@ class _WeatherPageState extends State<WeatherPage> {
         padding:  EdgeInsets.only(
           left: Dimensions.padWidth10*1.5,
           right: Dimensions.padWidth10*1.5,
-          top: Dimensions.padHeight30,
+          //top: Dimensions.padHeight30,
         ),
-        child: Stack(
-          children: [
-            SafeArea(
-              top: true,
-              child: Column(
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -217,21 +216,28 @@ class _WeatherPageState extends State<WeatherPage> {
                       }
                     },
                   ),
-                  Text("havakalitesi".tr,style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    letterSpacing: 1.3,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  SizedBox(height: Dimensions.padHeight10,),
-                  Image.asset(
-                    "assets/air_char.png",
-                    scale: 1,
+                  Padding(
+                    padding:  EdgeInsets.only(bottom: Dimensions.padHeight10*2),
+                    child: Text("havakalitesi".tr,style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      letterSpacing: 1.3,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                  ),
+
+                  SizedBox(
+                    height: (Dimensions.height200/2)*3,
+                    width: (Dimensions.width200/2)*3,
+                    child: Image.asset(
+                      "assets/air_char.png",
+                      scale: 1,
+                    ),
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -16,18 +16,20 @@ class SupportPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
 
-          children: [
-            ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "Eğitim Videoları", fontSize: 20),
-            Padding(
-              padding:  EdgeInsets.symmetric(vertical: Dimensions.padHeight30),
-              child: ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "Uygulama Nedir", fontSize: 20),
-            ),
-            ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "Tanıtım", fontSize: 20),
+            children: [
+              ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "eğitimvideoları".tr, fontSize: 20),
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: Dimensions.padHeight30),
+                child: ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "yygulamanedir".tr, fontSize: 20),
+              ),
+              ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "tanıtım".tr, fontSize: 20),
 
-          ],
+            ],
+          ),
         ),
       ),
     );

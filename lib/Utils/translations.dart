@@ -32,8 +32,8 @@ class Messages extends Translations {
           "ingilizce": "English",
           "sıcaklık": "Temperature",
           "nem": "Humidity",
-          "sıcaklıkgrafiği": "Temperature Graphic",
-          "nemgrafiği": "Humidity Graphic",
+          "sıcaklıkgrafiği": "Temperature Charts",
+          "nemgrafiği": "Humidity Charts",
           "nem": "Humidity",
           "havakalitesi": "Air Quality",
           "5dk": "5min",
@@ -47,8 +47,22 @@ class Messages extends Translations {
           "yardım": "Support",
           "hava": "Weather",
           "smsemail": "SMS and Email",
-          "grafikler" : "View Graphics",
-  "sıcaklıkvenemgrafikleri" : "Temperature and Humidity Graphics"
+          "grafikler": "View Charts",
+          "sıcaklıkvenemgrafikleri": "Temperature and Humidity Charts",
+          "cihaz": "Device",
+          "güncelle": "Update",
+          "ad" : "First Name",
+          "soyad" : "Surname",
+          "işletmeadı" : "Business Name",
+          "işletmenumarası" : "Business Number",
+          "cihazadedi" : "Number of Devices",
+          "versiyon" : "Version",
+          "aktif" : "Active",
+          "pasif" : "Passive",
+          "eğtimvideoları" : "Educational Videos",
+          "tanıtım" : "introduction",
+          "uygulamanedir"  : "What is Application?"
+
         },
         'tr_TR': {
           "button_lang": "TR",
@@ -91,11 +105,23 @@ class Messages extends Translations {
           "24saat": "24 saat",
           "yardım": "Yardım",
           "smsemail": "SMS ve Email",
-          "grafikler" : "Grafikleri Görüntüle",
-          "sıcaklıkvenemgrafikleri" : "Sıcaklık ve Nem Grafikleri",
+          "grafikler": "Grafikleri Görüntüle",
+          "sıcaklıkvenemgrafikleri": "Sıcaklık ve Nem Grafikleri",
           "sıcaklıkgrafiği": "Sıcaklık Grafiği",
           "nemgrafiği": "Nem Grafiği",
-
-}
+          "cihaz": "Cihaz",
+          "güncelle": "Güncelle",
+          "ad" : "Ad",
+          "soyad" : "Soyad",
+          "işletmeadı" : "İşletme Adı",
+          "işletmenumarası" : "İşletme Numarası",
+          "cihazadedi" : "Cihaz Adedi",
+          "versiyon" : "Versiyon",
+          "aktif" : "Aktif",
+          "pasif" : "Pasif",
+          "eğtimvideoları" : "Eğitim Videoları",
+          "tanıtım" : "Tanıtım",
+          "uygulamanedir"  : "Uygulama Nedir?"
+        }
       };
 }

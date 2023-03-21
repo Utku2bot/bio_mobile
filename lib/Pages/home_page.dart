@@ -13,7 +13,6 @@ import 'package:get/get.dart';
 import '../Utils/colors.dart';
 import '../Widgets/hexagon_container.dart';
 import 'audio_page.dart';
-import 'deneme.dart';
 import 'location_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,25 +51,14 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            InkWell(
-              child: Image.asset(
-                "assets/logbee.png",
-                scale: 8,
-              ),
-              onTap: () {
-                Get.to(() => LoginScreen());
-              },
-            ),
-            /*InkWell(
-              onTap: (){
-                Get.to(()=>const Deneme());
-              },
-              child: Text("deneme"),
-            )*/
-          ],
+        floatingActionButton: InkWell(
+          child: Image.asset(
+            "assets/logbee.png",
+            scale: 8,
+          ),
+          onTap: () {
+            Get.to(() => LoginScreen());
+          },
         ),
         body: Padding(
           padding:  EdgeInsets.only(bottom: Dimensions.padHeight50),
@@ -81,8 +69,8 @@ class _HomePageState extends State<HomePage> {
   Container buildHexagonGrid() {
     return Container(
 
-      height: 520,
-      width: 360,
+      height: 520, //520
+      width: 360,  //360
       child: Stack(
         children: [
           Stack(
@@ -91,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               HexagonContainer(
                 color: bioGold,
                 onTap: () {
-                  Get.to(() => const SettingsPage());
+                  Get.to(() =>  const SettingsPage());
                 },
                 text: 'home_ayarlar'.tr,
                 image: "audio_image",
@@ -104,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                   Stack(
                     alignment: Alignment.topCenter,
                     children: [
-                      Container(
+                      const SizedBox(
                         width: 50,
                         height: 220,
                       ),
@@ -150,8 +138,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       HexagonContainer(
                         color: bioGold,
-                        onTap: () {
+                          onTap: () {
                           Get.to(() => const SettingsPage());
+
                         },
                         text: 'home_ayarlar'.tr,
                         image: "settings_image",

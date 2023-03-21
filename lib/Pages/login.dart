@@ -88,8 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
             borderRadius: BorderRadius.circular(20),
             elevation: 12,
             child: Container(
-              width: 100,
-              height: 100,
+              width: Dimensions.width200/2,
+              height: Dimensions.height200/2,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(50)),
