@@ -1,3 +1,4 @@
+import 'package:biocoder/Pages/location_welcome_page.dart';
 import 'package:biocoder/Pages/login.dart';
 import 'package:biocoder/Pages/settings_page.dart';
 import 'package:biocoder/Pages/status_page.dart';
@@ -202,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                         HexagonContainer(
                           color: bioBlue,
                           onTap: () {
-                            Get.to(() => LocationPage());
+                            Get.to(() => LocationWelcomePage());
                           },
                           text: 'home_konum'.tr,
                           image: "googlemark_image",

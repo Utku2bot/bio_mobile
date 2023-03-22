@@ -1,24 +1,25 @@
-import 'package:biocoder/Pages/weather_page.dart';
-import 'package:biocoder/Utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:future_builder_ex/future_builder_ex.dart';
 import 'package:geolocator/geolocator.dart';
+import '../Utils/colors.dart';
+import 'location_page.dart';
 
+class LocationWelcomePage extends StatefulWidget {
+ const LocationWelcomePage({Key? key}) : super(key: key);
 
-class WeatherWelcomePage extends StatefulWidget {
-  const WeatherWelcomePage({Key? key}) : super(key: key);
 
 
   @override
-  State<WeatherWelcomePage> createState() => _WeatherWelcomePageState();
+  State<LocationWelcomePage> createState() => _LocationWelcomePageState();
 }
 
-class _WeatherWelcomePageState extends State<WeatherWelcomePage> {
-
-    Future<Position> getCurrentLocation() async {
+class _LocationWelcomePageState extends State<LocationWelcomePage> {
+  Future<Position> getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
+
+
       return Future.error("Location services are disable");
     }
     LocationPermission permission = await Geolocator.checkPermission();
@@ -35,6 +36,9 @@ class _WeatherWelcomePageState extends State<WeatherWelcomePage> {
     return await Geolocator.getCurrentPosition();
   }
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +50,7 @@ class _WeatherWelcomePageState extends State<WeatherWelcomePage> {
             size: 100,
           ),
           builder: (context, data) {
-            return WeatherPage(position: data!,);
+            return LocationPage(positions: data!,);
           },
         ),
       ),

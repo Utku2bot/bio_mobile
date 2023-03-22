@@ -109,6 +109,7 @@ class _UserPageState extends State<UserPage> {
                           fontWeight: FontWeight.w400),),
                     ],
                   ),
+                  
                   SizedBox(height: Dimensions.padHeight10*1.5,),
                   Container(height: 1,color: Colors.grey,),
                   SizedBox(height: Dimensions.padHeight30,),
