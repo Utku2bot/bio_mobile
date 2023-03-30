@@ -10,7 +10,7 @@ class Messages extends Translations {
           'login_şifremiunuttum': 'Forgot Password',
           'login_girişyap': 'Login',
           'login_üyedeğilmisiniz': 'Not a member?',
-          'login_kayıtol': 'Register',
+          'login_kayıtol': 'Sign Up',
           "home_kullanıcı": "User",
           "home_ayarlar": "Settings",
           "home_durum": "Status",
@@ -61,7 +61,9 @@ class Messages extends Translations {
           "pasif" : "Passive",
           "eğtimvideoları" : "Educational Videos",
           "tanıtım" : "introduction",
-          "uygulamanedir"  : "What is Application?"
+          "uygulamanedir"  : "What is Application?",
+          "şifretekrar" : "Confirm Password",
+          "girişbaşarısız" : "Login failed"
 
         },
         'tr_TR': {
@@ -121,7 +123,10 @@ class Messages extends Translations {
           "pasif" : "Pasif",
           "eğtimvideoları" : "Eğitim Videoları",
           "tanıtım" : "Tanıtım",
-          "uygulamanedir"  : "Uygulama Nedir?"
+          "uygulamanedir"  : "Uygulama Nedir?",
+          "şifretekrar" : "Şifre Tekrar",
+          "girişbaşarısız" : "Giriş Başarısız"
+
         }
       };
 }

@@ -1,11 +1,13 @@
 
 
-import 'package:biocoder/Utils/colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart' as latLng;
+
+import '../Utils/colors.dart';
 
 class LocationPage extends StatefulWidget {
   LocationPage({Key? key, required this.positions}) : super(key: key);
@@ -52,11 +54,7 @@ class _LocationPageState extends State<LocationPage> {
     return await Geolocator.getCurrentPosition();
   }
   final mapController = MapController();
-  @override
-  void initState() {
 
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +108,7 @@ class _LocationPageState extends State<LocationPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(onPressed: () async {
-       Position positions = await getCurrentLocation();
+         Position positions = await getCurrentLocation();
         setState(() {
           Navigator.pushReplacement(
               context,
@@ -118,7 +116,7 @@ class _LocationPageState extends State<LocationPage> {
                   builder: (BuildContext context) => LocationPage(positions: positions)));
         });
 
-      },backgroundColor: bioGreen,mini: true,child: const Icon(Icons.place_rounded,color: bioBlue,),),
+      },backgroundColor: bioGreen,mini: true,child: const Icon(Icons.place_rounded,color: Colors.black,),),
     );
   }
 }

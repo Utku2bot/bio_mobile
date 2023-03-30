@@ -44,8 +44,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/user", page: ()=>  const UserPage()),
         GetPage(name: "/weight", page: ()=>  const WeightPage()),
         GetPage(name: "/weatherwelcome", page: ()=>  const WeatherWelcomePage()),
-      ],
-*/
+      ],*/
+      
+
+
     );
   }
 }

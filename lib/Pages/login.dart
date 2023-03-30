@@ -4,7 +4,8 @@ import 'package:biocoder/Utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
-
+import 'package:http/http.dart' as ht;
+import 'package:http/http.dart';
 import '../Widgets/my_button.dart';
 
 const users = {
@@ -20,17 +21,26 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   Duration get loginTime => const Duration(milliseconds: 2250);
 
-  Future<String?> _authUser(LoginData data) {
-    debugPrint('Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'User not exists';
+  Future<String?> _authUser(LoginData loginData) async {
+
+    try{
+      ht.Response response = await post(
+          Uri.parse("https://reqres.in/api/login"),
+          body: {
+            "email": loginData.name,
+            "password" : loginData.password
+          }
+      );
+
+      if (response.statusCode == 200) {
+        return null;
+      }  else{
+        return "girişbaşarısız".tr;
       }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
-    });
+    }catch(e){
+      print(e.toString());
+    }
+
   }
 
   Future<String?> _signupUser(SignupData data) {
@@ -39,7 +49,6 @@ class _LoginScreenState extends State<LoginScreen> {
       return null;
     });
   }
-
   Future<String> _recoverPassword(String name) {
     debugPrint('Name: $name');
     return Future.delayed(loginTime).then((_) {
@@ -101,7 +110,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           )),
       body: FlutterLogin(
-        messages: LoginMessages(),
+        userType: LoginUserType.email,
+        messages: LoginMessages(passwordHint: "login_şifre".tr,forgotPasswordButton: "login_şifremiunuttum".tr,loginButton: "login_girişyap".tr,signupButton: "login_kayıtol".tr,confirmPasswordHint: "şifretekrar".tr),
         headerWidget: Center(
             child: Image.asset(
           'assets/logbee.png',
