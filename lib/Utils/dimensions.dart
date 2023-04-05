@@ -7,7 +7,7 @@ class Dimensions{
 static double screenHeight = Get.context!.height;
 static double screenWidth = Get.context!.width;
 
-static double loginCardInitialHeight = screenHeight/1.305;
+static double loginCardInitialHeight = screenHeight;
 static double toolbarHeight = screenHeight/26.1;
 
 static double padHeight10 = screenHeight/78.3;

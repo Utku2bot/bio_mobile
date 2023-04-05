@@ -6,7 +6,7 @@ class Messages extends Translations {
         'en_US': {
           "button_lang": "EN",
           'login_kullanıcıadı': 'Username',
-          'login_şifre': 'Password',
+          'login_şifre': 'Password at least 8 characters',
           'login_şifremiunuttum': 'Forgot Password',
           'login_girişyap': 'Login',
           'login_üyedeğilmisiniz': 'Not a member?',
@@ -99,7 +99,7 @@ class Messages extends Translations {
         'tr_TR': {
           "button_lang": "TR",
           'login_kullanıcıadı': 'Kullanıcı Adı',
-          'login_şifre': 'Şifre',
+          'login_şifre': 'Şifre en az 8 karakter',
           'login_şifremiunuttum': 'Şifremi Unuttum',
           'login_girişyap': 'Giriş Yap',
           'login_üyedeğilmisiniz': 'Üye Değil misiniz?',
@@ -160,7 +160,7 @@ class Messages extends Translations {
           "ceptelefon": "Cep Telefonu",
           "adres": "Adres",
           "additionalSignUpFormDescription":
-              "Kaydı tamamlamak için lütfen bu formu doldurunuz",
+           "Kaydı tamamlamak için lütfen bu formu doldurunuz",
           "submit": "Gönder",
           "geri": "Geri",
           "ara": "Ara",
