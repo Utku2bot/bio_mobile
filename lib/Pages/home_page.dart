@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
         appBar: AppBar(
+
           toolbarHeight: Dimensions.toolbarHeight,
           elevation: 0,
           automaticallyImplyLeading: false,
@@ -58,7 +59,17 @@ class _HomePageState extends State<HomePage> {
             scale: 8,
           ),
           onTap: () {
+
+
+
+
+
+
+
+
+
             Get.to(() => LoginScreen());
+
           },
         ),
 

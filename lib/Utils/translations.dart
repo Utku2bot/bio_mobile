@@ -95,6 +95,9 @@ class Messages extends Translations {
           "MUĞLA": "MUGLA",
           "İRAN": "IRANIAN",
           "YIĞILCA": "YIGILCA",
+          "gereklialan" : "Please Fill in the Required Fields",
+          "uyarı" : "Warning",
+
         },
         'tr_TR': {
           "button_lang": "TR",
@@ -186,7 +189,11 @@ class Messages extends Translations {
           "ANADOLU": "ANADOLU",
           "MUĞLA": "MUĞLA",
           "İRAN": "İRAN",
-          "YIĞILCA": "YIĞILCA"
+          "YIĞILCA": "YIĞILCA",
+          "gereklialan" : "Lüften Gerekli Alanları Doldurunuz",
+          "uyarı" : "Uyarı",
+
+
         }
       };
 }

@@ -6,8 +6,8 @@ import 'package:find_dropdown/find_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as ht;
-import 'package:http/http.dart';
+
+import 'package:http/http.dart' as htt;
 import '../Widgets/my_button.dart';
 
 
@@ -20,10 +20,10 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   Duration get loginTime => const Duration(milliseconds: 2250);
-  String il = " ";
-  String ilce = "";
-  String ariCins = "";
-  String kovanCins = "";
+  String il = "Ankadara";
+  String ilce = "Çankaya";
+  String ariCins = "KIBRIS";
+  String kovanCins = "yeni".tr;
   List<String> bosList = [""];
   List<String> ilList = ["Adana", "Adıyaman", "Afyon", "Ağrı", "Aksaray", "Amasya", "Ankara", "Antalya", "Ardahan", "Artvin", "Aydın", "Balıkesir", "Bartın", "Batman", "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Düzce", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri", "Hatay", "Iğdır", "Isparta", "İstanbul", "İzmir", "Kahramanmaraş", "Karabük", "Karaman", "Kars", "Kastamonu", "Kayseri", "Kilis", "Kırıkkale", "Kırklareli", "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize", "Sakarya", "Samsun", "Şanlıurfa", "Siirt", "Sinop", "Sivas", "Şırnak", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak"];
 
@@ -119,21 +119,46 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
     try {
-      ht.Response response = await post(
-          Uri.parse("https://reqres.in/api/login"),
+      htt.Response response = await htt.post(
+          Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/login"),
+          headers: {
+            "Accept": "application/json",
+            "content-type":"application/json"
+          },
+        body: jsonEncode(
+            {
+              "username" : loginData.name,
+              "password": loginData.password
+            }
+        )
+      );
+
+      final data = json.decode(response.body);
+      print(data);
+
+      if (response.statusCode == 200 && data["status"] ==true ) {
 
 
-          body: {"email": loginData.name, "password": loginData.password});
+        Get.to(()=>HomePage(),arguments: {
+
+          "userId": data["data"]["userId"],
+          "userMail":  data["data"]["userMail"],
+          "fullname": data["data"]["fullname"]
 
 
-      if (response.statusCode == 200) {
+        });
         return null;
+
+
       } else {
+
+
         return "girişbaşarısız".tr;
       }
     } catch (e) {
       print(e.toString());
     }
+
   }
 
 
@@ -151,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
         return "şifreuyarı8".tr;
       }
       Get.back();
-      //Get.snackbar("Uyarı", data.toString());
+
       return null;
     });
   }
@@ -237,6 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     FindDropdown(
 
                       items: ilList,
+                      selectedItem: "Ankara",
                       label: "il".tr,
                       onChanged: (String? item) {
                         setState(() {
@@ -251,6 +277,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     ),
                     FindDropdown(
+                      selectedItem: "Çankaya",
                       items: bosList,
                       label: "ilçe".tr,
                       onChanged: (String? item) {
@@ -264,6 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     FindDropdown(
+                      selectedItem: "KIBRIS",
                       items: [
                         "KARNİOL".tr,
                         "KAFKAS".tr,
@@ -286,10 +314,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     FindDropdown(
+                      selectedItem: "yeni".tr,
                       items: ["eski".tr, "yeni".tr, "katlı".tr],
                       label: "kovancinsi".tr,
                       onChanged: (String? item) {
                         kovanCins = item!;
+
 
 
                       },
@@ -307,12 +337,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     if(kovanCins.isEmpty || ariCins.isEmpty || il.isEmpty || ilce.isEmpty){
 
-                      Get.snackbar("Uyarı", "Lüften Gerekli Alanları Doldurunuz");
+                      Get.snackbar("uyarı".tr, "gereklialan".tr);
 
                     }
                     else{
                       Get.back();
-                      //Get.snackbar("Uyarı", kovanCins+ariCins+il+ilce);
+
 
                     }
 
