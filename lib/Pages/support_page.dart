@@ -21,10 +21,10 @@ class SupportPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
 
             children: [
-              ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "eğitimvideoları".tr, fontSize: 20),
+              ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "eğtimvideoları".tr, fontSize: 20),
               Padding(
                 padding:  EdgeInsets.symmetric(vertical: Dimensions.padHeight30),
-                child: ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "yygulamanedir".tr, fontSize: 20),
+                child: ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "uygulamanedir".tr, fontSize: 20),
               ),
               ElevatedContainer(elevation: 10, height: Dimensions.height200/2, width: Dimensions.width200, color: bioGreen, text: "tanıtım".tr, fontSize: 20),
 

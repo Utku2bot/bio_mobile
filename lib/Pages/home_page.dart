@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:biocoder/Pages/location_welcome_page.dart';
 import 'package:biocoder/Pages/login.dart';
 import 'package:biocoder/Pages/settings_page.dart';
@@ -15,6 +16,7 @@ import '../Utils/colors.dart';
 import '../Widgets/hexagon_container.dart';
 import 'audio_page.dart';
 import 'location_page.dart';
+import 'package:http/http.dart' as htt;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,11 +28,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
     void changeLanguage() {
       Get.updateLocale(Get.locale == const Locale("tr", "TR")
           ? const Locale("en", "EN")
           : const Locale("tr", "TR"));
     }
+
+
+
+
+
 
     return Scaffold(
         appBar: AppBar(
@@ -54,16 +62,12 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: InkWell(
+
           child: Image.asset(
             "assets/logbee.png",
             scale: 8,
           ),
           onTap: () {
-
-
-
-
-
 
 
 
@@ -80,6 +84,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Container buildHexagonGrid() {
+
+
+
+
     return Container(
 
       height: 520, //520
@@ -111,8 +119,98 @@ class _HomePageState extends State<HomePage> {
                       ),
                       HexagonContainer(
                         color: bioGold,
-                        onTap: () {
-                          Get.to(() => const StatusPage());
+                        onTap: () async{
+                          try {
+                            htt.Response response = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/userData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+                            htt.Response response2 = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/deviceData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+
+                            htt.Response response3 = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/ProductData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+
+                            final data = json.decode(response.body);
+                            final data2 = json.decode(response2.body);
+                            final data3 = json.decode(response3.body);
+
+
+                            if (response.statusCode == 200 && data["status"] ==true ) {
+
+                              Get.to(()=>StatusPage(),arguments: {
+
+                                "tc": data["data"]["tc"],
+                                "adi":data["data"]["adi"],
+                                "soyadi": data["data"]["soyadi"],
+                                "isletme_no":  data["data"]["isletme_no"],
+                                "cep_telefon": data["data"]["cep_telefon"],
+                                "username": data["data"]["username"],
+                                "password": data["data"]["password"],
+                                "adres": data["data"]["adres"],
+                                "il": data["data"]["il"],
+                                "ilce": data["data"]["ilce"],
+
+
+                                "seriNO": data2["data"]["seriNO"],
+                                "sicaklik": data2["data"]["sicaklik"],
+                                "nem": data2["data"]["nem"],
+                                "konum": data2["data"]["konum"],
+                                "ses": data2["data"]["ses"],
+                                "hareket": data2["data"]["hareket"],
+                                "havaKalitesi": data2["data"]["havaKalitesi"],
+                                "baglanti":data2["data"]["baglanti"],
+                                "agirlik": data2["data"]["agirlik"],
+                                "kamera": data2["data"]["kamera"],
+
+                                "müsteriID": data3["data"]["müsteriID"],
+                                "ariCinsi": data3["data"]["ariCinsi"],
+                                "üretimSekli": data3["data"]["üretimSekli"],
+                                "kovanCinsi": data3["data"]["kovanCinsi"],
+                                "kovanSayisi": data3["data"]["kovanSayisi"]
+
+
+
+
+                              });
+
+
+
+                            }
+                          } catch (e) {
+                            print(e.toString());
+                          }
                         },
                         text: 'home_durum'.tr,
                         image: "hive_image",
@@ -124,8 +222,99 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.only(top: 127),
                         child: HexagonContainer(
                           color: bioBlue,
-                          onTap: () {
-                            Get.to(() => const TempHumiPage());
+                          onTap: () async{
+                            try {
+                              htt.Response response = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/userData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+                              htt.Response response2 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/deviceData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              htt.Response response3 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/ProductData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              final data = json.decode(response.body);
+                              final data2 = json.decode(response2.body);
+                              final data3 = json.decode(response3.body);
+
+
+                              if (response.statusCode == 200 && data["status"] ==true ) {
+                                print(data3);
+                                Get.to(()=>TempHumiPage(),arguments: {
+
+                                  "tc": data["data"]["tc"],
+                                  "adi":data["data"]["adi"],
+                                  "soyadi": data["data"]["soyadi"],
+                                  "isletme_no":  data["data"]["isletme_no"],
+                                  "cep_telefon": data["data"]["cep_telefon"],
+                                  "username": data["data"]["username"],
+                                  "password": data["data"]["password"],
+                                  "adres": data["data"]["adres"],
+                                  "il": data["data"]["il"],
+                                  "ilce": data["data"]["ilce"],
+
+
+                                  "seriNO": data2["data"]["seriNO"],
+                                  "sicaklik": data2["data"]["sicaklik"],
+                                  "nem": data2["data"]["nem"],
+                                  "konum": data2["data"]["konum"],
+                                  "ses": data2["data"]["ses"],
+                                  "hareket": data2["data"]["hareket"],
+                                  "havaKalitesi": data2["data"]["havaKalitesi"],
+                                  "baglanti":data2["data"]["baglanti"],
+                                  "agirlik": data2["data"]["agirlik"],
+                                  "kamera": data2["data"]["kamera"],
+
+                                  "müsteriID": data3["data"]["müsteriID"],
+                                  "ariCinsi": data3["data"]["ariCinsi"],
+                                  "üretimSekli": data3["data"]["üretimSekli"],
+                                  "kovanCinsi": data3["data"]["kovanCinsi"],
+                                  "kovanSayisi": data3["data"]["kovanSayisi"]
+
+
+
+
+                                });
+
+
+
+                              }
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
                           },
                           text: 'home_sıcaklıkvenem'.tr,
                           image: "temp_image",
@@ -141,8 +330,100 @@ class _HomePageState extends State<HomePage> {
 
                       HexagonContainer(
                         color: bioGold,
-                        onTap: () {
-                          Get.to(() => const UserPage());
+                        onTap: () async{
+
+                          try {
+                            htt.Response response = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/userData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+                            htt.Response response2 = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/deviceData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+
+                            htt.Response response3 = await htt.post(
+                                Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/ProductData"),
+                                headers: {
+                                  "Accept": "application/json",
+                                  "content-type":"application/json"
+                                },
+                                body: jsonEncode(
+                                    {
+                                      "id": Get.arguments["userId"],
+
+                                    }
+                                )
+                            );
+
+                            final data = json.decode(response.body);
+                            final data2 = json.decode(response2.body);
+                            final data3 = json.decode(response3.body);
+
+
+                            if (response.statusCode == 200 && data["status"] ==true ) {
+                              print(data3);
+                              Get.to(()=>UserPage(),arguments: {
+
+                                "tc": data["data"]["tc"],
+                                "adi":data["data"]["adi"],
+                                "soyadi": data["data"]["soyadi"],
+                                "isletme_no":  data["data"]["isletme_no"],
+                                "cep_telefon": data["data"]["cep_telefon"],
+                                "username": data["data"]["username"],
+                                "password": data["data"]["password"],
+                                "adres": data["data"]["adres"],
+                                "il": data["data"]["il"],
+                                "ilce": data["data"]["ilce"],
+
+
+                                "seriNO": data2["data"]["seriNO"],
+                                "sicaklik": data2["data"]["sicaklik"],
+                                "nem": data2["data"]["nem"],
+                                "konum": data2["data"]["konum"],
+                                "ses": data2["data"]["ses"],
+                                "hareket": data2["data"]["hareket"],
+                                "havaKalitesi": data2["data"]["havaKalitesi"],
+                                "baglanti":data2["data"]["baglanti"],
+                                "agirlik": data2["data"]["agirlik"],
+                                "kamera": data2["data"]["kamera"],
+
+                                "müsteriID": data3["data"]["müsteriID"],
+                                "ariCinsi": data3["data"]["ariCinsi"],
+                                "üretimSekli": data3["data"]["üretimSekli"],
+                                "kovanCinsi": data3["data"]["kovanCinsi"],
+                                "kovanSayisi": data3["data"]["kovanSayisi"]
+
+
+
+
+                              });
+
+
+
+                            }
+                          } catch (e) {
+                            print(e.toString());
+                          }
+
                         },
                         text: 'home_kullanıcı'.tr,
                         image: "user_image",
@@ -202,8 +483,99 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         HexagonContainer(
                           color: bioBlue,
-                          onTap: () {
-                            Get.to(() => const AudioPage());
+                          onTap: () async{
+                            try {
+                              htt.Response response = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/userData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+                              htt.Response response2 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/deviceData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              htt.Response response3 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/ProductData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              final data = json.decode(response.body);
+                              final data2 = json.decode(response2.body);
+                              final data3 = json.decode(response3.body);
+
+
+                              if (response.statusCode == 200 && data["status"] ==true ) {
+
+                                Get.to(()=>const AudioPage(),arguments: {
+
+                                  "tc": data["data"]["tc"],
+                                  "adi":data["data"]["adi"],
+                                  "soyadi": data["data"]["soyadi"],
+                                  "isletme_no":  data["data"]["isletme_no"],
+                                  "cep_telefon": data["data"]["cep_telefon"],
+                                  "username": data["data"]["username"],
+                                  "password": data["data"]["password"],
+                                  "adres": data["data"]["adres"],
+                                  "il": data["data"]["il"],
+                                  "ilce": data["data"]["ilce"],
+
+
+                                  "seriNO": data2["data"]["seriNO"],
+                                  "sicaklik": data2["data"]["sicaklik"],
+                                  "nem": data2["data"]["nem"],
+                                  "konum": data2["data"]["konum"],
+                                  "ses": data2["data"]["ses"],
+                                  "hareket": data2["data"]["hareket"],
+                                  "havaKalitesi": data2["data"]["havaKalitesi"],
+                                  "baglanti":data2["data"]["baglanti"],
+                                  "agirlik": data2["data"]["agirlik"],
+                                  "kamera": data2["data"]["kamera"],
+
+                                  "müsteriID": data3["data"]["müsteriID"],
+                                  "ariCinsi": data3["data"]["ariCinsi"],
+                                  "üretimSekli": data3["data"]["üretimSekli"],
+                                  "kovanCinsi": data3["data"]["kovanCinsi"],
+                                  "kovanSayisi": data3["data"]["kovanSayisi"]
+
+
+
+
+                                });
+
+
+
+                              }
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
                           },
                           text: 'home_ses'.tr,
                           image: "audio_image",
@@ -263,8 +635,100 @@ class _HomePageState extends State<HomePage> {
                         ),
                         HexagonContainer(
                           color: bioGreen,
-                          onTap: () {
-                            Get.to(() => const WeightPage());
+                          onTap: () async {
+                            try {
+                              htt.Response response = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/userData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+                              htt.Response response2 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/deviceData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              htt.Response response3 = await htt.post(
+                                  Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/ProductData"),
+                                  headers: {
+                                    "Accept": "application/json",
+                                    "content-type":"application/json"
+                                  },
+                                  body: jsonEncode(
+                                      {
+                                        "id": Get.arguments["userId"],
+
+                                      }
+                                  )
+                              );
+
+                              final data = json.decode(response.body);
+                              final data2 = json.decode(response2.body);
+                              final data3 = json.decode(response3.body);
+
+
+                              if (response.statusCode == 200 && data["status"] ==true ) {
+
+                                Get.to(()=>WeightPage(),arguments: {
+
+                                  "tc": data["data"]["tc"],
+                                  "adi":data["data"]["adi"],
+                                  "soyadi": data["data"]["soyadi"],
+                                  "isletme_no":  data["data"]["isletme_no"],
+                                  "cep_telefon": data["data"]["cep_telefon"],
+                                  "username": data["data"]["username"],
+                                  "password": data["data"]["password"],
+                                  "adres": data["data"]["adres"],
+                                  "il": data["data"]["il"],
+                                  "ilce": data["data"]["ilce"],
+
+
+                                  "seriNO": data2["data"]["seriNO"],
+                                  "sicaklik": data2["data"]["sicaklik"],
+                                  "nem": data2["data"]["nem"],
+                                  "konum": data2["data"]["konum"],
+                                  "ses": data2["data"]["ses"],
+                                  "hareket": data2["data"]["hareket"],
+                                  "havaKalitesi": data2["data"]["havaKalitesi"],
+                                  "baglanti":data2["data"]["baglanti"],
+                                  "agirlik": data2["data"]["agirlik"],
+                                  "kamera": data2["data"]["kamera"],
+
+
+                                  "müsteriID": data3["data"]["müsteriID"],
+                                  "ariCinsi": data3["data"]["ariCinsi"],
+                                  "üretimSekli": data3["data"]["üretimSekli"],
+                                  "kovanCinsi": data3["data"]["kovanCinsi"],
+                                  "kovanSayisi": data3["data"]["kovanSayisi"]
+
+
+
+
+                                });
+
+
+
+                              }
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
                           },
                           text: 'home_ağırlık'.tr,
                           image: "weight_image",
