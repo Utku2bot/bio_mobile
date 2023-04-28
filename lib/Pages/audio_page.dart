@@ -58,11 +58,11 @@ class _AudioPageState extends State<AudioPage> {
 
                         ],
                         rows: List<DataRow>.generate(
-                          10,
+                          1,
                               (index) => DataRow(
                             cells: [
                               DataCell(Text('${"cihaz".tr} ${index + 1}')),
-                              DataCell(Text('${400 + index}')),
+                              DataCell(Text(Get.arguments["ses"].toString())),
 
                             ],
                           ),

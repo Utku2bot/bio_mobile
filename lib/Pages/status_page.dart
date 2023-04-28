@@ -69,11 +69,11 @@ class _StatusPageState extends State<StatusPage> {
                               size: ColumnSize.S),
                         ],
                         rows: List<DataRow>.generate(
-                          10,
+                          1,
                           (index) => DataRow(
                             cells: [
                               DataCell(Text('${"cihaz".tr} ${index + 1}')),
-                              DataCell(Text('aktif'.tr)),
+                              DataCell(Text(Get.arguments["baglanti"].toString())),
                             ],
                           ),
                         ),

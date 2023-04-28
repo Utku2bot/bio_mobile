@@ -6,7 +6,6 @@ import 'package:find_dropdown/find_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
-
 import 'package:http/http.dart' as htt;
 import '../Widgets/my_button.dart';
 
@@ -127,14 +126,14 @@ class _LoginScreenState extends State<LoginScreen> {
           },
         body: jsonEncode(
             {
-              "username" : loginData.name,
+              "username": loginData.name,
               "password": loginData.password
-            }
+           }
         )
       );
 
       final data = json.decode(response.body);
-      print(data);
+
 
       if (response.statusCode == 200 && data["status"] ==true ) {
 
@@ -166,7 +165,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
   Future<String?> _signupUser(SignupData data) {
-    return Future.delayed(loginTime).then((_) {
+    return Future.delayed(loginTime).then((_) async {
+
 
       _showMaterialDialog();
       RegExp regex = RegExp(r'^(?=.*?).{8,}$');
@@ -175,11 +175,100 @@ class _LoginScreenState extends State<LoginScreen> {
 
         return "şifreuyarı8".tr;
       }
+      String? password= data.password;
+      String? email= data.name;
+      String? tc= data.additionalSignupData!["tc"];
+      String? ad= data.additionalSignupData!["ad"];
+      String? soyad= data.additionalSignupData!["soyad"];
+      String? adres= data.additionalSignupData!["adres"];
+      String? tel= data.additionalSignupData!["ceptelefon"];
+      String? isletmeno= data.additionalSignupData!["işletmeno"];
+
+
+
+
+
+
+
+
+
+      try {
+
+
+        htt.Response response = await htt.post(
+            Uri.parse("http://api.biocoder.com.tr/api/ValuesController1/register"),
+            headers: {
+              "Accept": "application/json",
+              "content-type":"application/json"
+            },
+            body: jsonEncode(
+                {
+                  "tc": tc,
+                  "adi": ad,
+                  "soyadi": soyad,
+                  "isletme_no": isletmeno,
+                  "cep_telefon": tel,
+                  "username": email,
+                  "password": password,
+                  "adres": adres,
+                  "il": il,
+                  "ilce": ilce
+                }
+            )
+        );
+
+        final data = json.decode(response.body);
+
+
+        if (response.statusCode == 200 && data["status"] ==true ) {
+
+
+          Get.to(()=>HomePage(),arguments: {
+
+            "userId": data["data"]["userId"],
+            "userMail":  data["data"]["userMail"],
+            "fullname": data["data"]["fullname"]
+
+
+          });
+          return null;
+
+
+        } else {
+
+
+          return "girişbaşarısız".tr;
+        }
+      } catch (e) {
+        print(e.toString());
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       Get.back();
 
       return null;
     });
   }
+
+
+
+
+
+
+
+
 
   Future<String> _recoverPassword(String name) {
     debugPrint('Name: $name');

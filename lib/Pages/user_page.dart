@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:biocoder/Utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../Utils/colors.dart';
 
 class UserPage extends StatefulWidget {
@@ -63,7 +61,7 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Icon(Icons.account_circle, size: 40, color: bioBlue,),
                       SizedBox(width: Dimensions.padWidth30*2,),
-                      Text("ad".tr, style: TextStyle(
+                      Text(Get.arguments["adi"], style: TextStyle(
                           color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.w400),),
@@ -77,20 +75,20 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Icon(Icons.accessibility, size: 40, color: bioBlue,),
                       SizedBox(width: Dimensions.padWidth30*2,),
-                      Text("soyad".tr, style: TextStyle(
+                      Text(Get.arguments["soyadi"], style: TextStyle(
                           color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.w400),),
                     ],
                   ),
-          SizedBox(height: Dimensions.padHeight10*1.5,),
+                  SizedBox(height: Dimensions.padHeight10*1.5,),
                   Container(height: 1,color: Colors.grey,),
                   SizedBox(height: Dimensions.padHeight30,),
                   Row(
                     children: [
                       Icon(Icons.account_balance, size: 40, color: bioBlue,),
                       SizedBox(width: Dimensions.padWidth30*2,),
-                      Text("işletmeadı".tr, style: TextStyle(
+                      Text(Get.arguments["isletme_no"], style: TextStyle(
                           color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.w400),),
@@ -103,7 +101,7 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Icon(Icons.numbers, size: 40, color: bioBlue,),
                       SizedBox(width: Dimensions.padWidth30*2,),
-                      Text("işletmenumarası".tr, style: TextStyle(
+                      Text(Get.arguments["cep_telefon"], style: TextStyle(
                           color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.w400),),
@@ -117,7 +115,7 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Icon(Icons.hive, size: 40, color: bioBlue,),
                       SizedBox(width: Dimensions.padWidth30*2,),
-                      Text("cihazadedi".tr, style: TextStyle(
+                      Text(Get.arguments["kovanSayisi"].toString(), style: TextStyle(
                           color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.w400),),

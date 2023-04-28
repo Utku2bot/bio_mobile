@@ -95,13 +95,13 @@ class _WeightPageState extends State<WeightPage> {
                                 size: ColumnSize.S),
                           ],
                           rows: List<DataRow>.generate(
-                            5,
+                            1,
                             (index) => DataRow(
                               cells: [
                                 DataCell(Text('Cihaz ${index + 1}')),
                                 DataCell(Text('12700')),
                                 DataCell(Text('${60 + index}')),
-                                DataCell(Text('${42000 + index * 100}')),
+                                DataCell(Text(Get.arguments["agirlik"].toString())),
                               ],
                             ),
                           ),

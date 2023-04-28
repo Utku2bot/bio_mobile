@@ -65,12 +65,12 @@ class _TempHumiPageState extends State<TempHumiPage> {
 
                         ],
                         rows: List<DataRow>.generate(
-                          5,
+                          1,
                               (index) => DataRow(
                             cells: [
                               DataCell(Text('${"cihaz".tr} ${index + 1}')),
-                              DataCell(Text('${30+index}')),
-                              DataCell(Text('${50+index*5}')),
+                              DataCell(Text(Get.arguments["sicaklik"].toString())),
+                              DataCell(Text(Get.arguments["nem"].toString())),
 
                             ],
                           ),
